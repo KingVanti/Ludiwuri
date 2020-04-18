@@ -19,7 +19,7 @@ TextureImporter:
     second: Player_Walk_2
   - first:
       213: -4529042392078601758
-    second: Player_5
+    second: Player_Walk_3
   - first:
       213: -7446026091647042388
     second: Player_6
@@ -234,7 +234,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_5
+      name: Player_Walk_3
       rect:
         serializedVersion: 2
         x: 66
