@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace Gang1057.Ludiwuri.Game.World
 {
@@ -9,6 +10,19 @@ namespace Gang1057.Ludiwuri.Game.World
     public class RoomManager : MonoBehaviour
     {
 
+        #region Fields
+
+        /// <summary>
+        /// A dictionary of cached rooms, indexed by their name
+        /// </summary>
+        private Dictionary<string, GameObject> cachedRooms = new Dictionary<string, GameObject>();
+        /// <summary>
+        /// The currently active room
+        /// </summary>
+        private GameObject currentRoom;
+
+        #endregion
+
         #region Methods
 
         /// <summary>
@@ -17,23 +31,81 @@ namespace Gang1057.Ludiwuri.Game.World
         /// <param name="roomName">The rooms name</param>
         public void LoadRoom(string roomName)
         {
-            // Get the room asset with requested name
+            // Declare variable for the room
 
-            RoomAsset roomAsset = Resources.Load<RoomAsset>($"Rooms/{roomName}");
+            GameObject room = null;
 
-            // Load the associated room prefab
+            // If the room is already cached
 
-            LoadRoom(roomAsset.RoomPrefab);
+            if (cachedRooms.ContainsKey(roomName))
+
+                // Get the room from the cache
+
+                room = cachedRooms[roomName];
+
+            // If it is not yet cached
+
+            else
+            {
+                // Get the room asset with requested name
+
+                RoomAsset roomAsset = Resources.Load<RoomAsset>($"Rooms/{roomName}");
+
+                // Load the room
+
+                room = LoadRoomFromAsset(roomAsset);
+            }
+
+            // Enter the loaded room
+
+            EnterRoom(room);
         }
 
 
         /// <summary>
         /// Loads a room 
         /// </summary>
-        /// <param name="roomPrefab">The rooms prefab</param>
-        private void LoadRoom(GameObject roomPrefab)
+        /// <param name="roomAsset">The rooms asset</param>
+        /// <returns>The loaded room</returns>
+        private GameObject LoadRoomFromAsset(RoomAsset roomAsset)
         {
-            // TODO: Implement room loading
+            // Instantiate the prefab
+
+            GameObject room = Instantiate(roomAsset.RoomPrefab, transform);
+
+            // Cache the room
+
+            cachedRooms.Add(roomAsset.RoomName, room);
+
+            // Return the loaded room
+
+            return room;
+        }
+
+        /// <summary>
+        /// Enters the given room
+        /// </summary>
+        /// <param name="room">The room</param>
+        private void EnterRoom(GameObject room)
+        {
+            // If there is currently a room
+
+            if (currentRoom != null)
+
+                // Deactivate it
+
+                currentRoom.SetActive(false);
+
+            // Activate the new room
+
+            room.SetActive(true);
+
+            // TODO: Teleport player to door
+        }
+
+        private void Awake()
+        {
+            LoadRoom("TestRoom");
         }
 
         #endregion
