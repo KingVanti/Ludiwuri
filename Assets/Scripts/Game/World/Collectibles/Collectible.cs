@@ -48,6 +48,7 @@ namespace Gang1057.Ludiwuri.Game.World.Collectibles
         }
 
         #endregion
+
     }
 
 }
