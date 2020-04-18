@@ -95,7 +95,17 @@ namespace Gang1057.Ludiwuri.Game.World
 
             Room room = GetRoom(initialRoomName);
 
-            // TODO: Enter room
+            // Enter the new room
+
+            room.OnEnter();
+
+            // Get the bed spawn-point
+
+            SpawnPoint bed = room.GetSpawnPoint("Bed");
+
+            // Teleport the player to the bed
+
+            player.TeleportTo(bed.Position);
         }
 
         /// <summary>
