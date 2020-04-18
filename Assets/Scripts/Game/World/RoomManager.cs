@@ -16,6 +16,10 @@ namespace Gang1057.Ludiwuri.Game.World
 #pragma warning disable 649
 
         /// <summary>
+        /// The initial rooms name
+        /// </summary>
+        [SerializeField] private string initialRoomName;
+        /// <summary>
         /// The player
         /// </summary>
         [SerializeField] private PlayerController player;
@@ -36,37 +40,16 @@ namespace Gang1057.Ludiwuri.Game.World
         #region Methods
 
         /// <summary>
-        /// Loads a room with the given name
+        /// Enters the room with the given name
         /// </summary>
         /// <param name="roomName">The rooms name</param>
-        public void LoadRoom(string roomName)
+        public void EnterRoom(string roomName)
         {
-            // Declare variable for the room
+            // Get the room with that name
 
-            Room room = null;
+            Room room = GetRoom(roomName);
 
-            // If the room is already cached
-
-            if (cachedRooms.ContainsKey(roomName))
-
-                // Get the room from the cache
-
-                room = cachedRooms[roomName];
-
-            // If it is not yet cached
-
-            else
-            {
-                // Get the room asset with requested name
-
-                RoomAsset roomAsset = Resources.Load<RoomAsset>($"Rooms/{roomName}");
-
-                // Load the room
-
-                room = LoadRoomFromAsset(roomAsset);
-            }
-
-            // Enter the loaded room
+            // Enter the room
 
             EnterRoom(room);
         }
@@ -104,6 +87,55 @@ namespace Gang1057.Ludiwuri.Game.World
         }
 
         /// <summary>
+        /// Loads the room the game starts in
+        /// </summary>
+        private void LoadInitialRoom()
+        {
+            // Get the room with the initial rooms name
+
+            Room room = GetRoom(initialRoomName);
+
+            // TODO: Enter room
+        }
+
+        /// <summary>
+        /// Gets the room with the given name
+        /// </summary>
+        /// <param name="roomName">The rooms name</param>
+        /// <returns>The room</returns>
+        private Room GetRoom(string roomName)
+        {
+            // Declare variable for the room
+
+            Room room = null;
+
+            // If the room is already cached
+
+            if (cachedRooms.ContainsKey(roomName))
+
+                // Get the room from the cache
+
+                room = cachedRooms[roomName];
+
+            // If it is not yet cached
+
+            else
+            {
+                // Get the room asset with requested name
+
+                RoomAsset roomAsset = Resources.Load<RoomAsset>($"Rooms/{roomName}");
+
+                // Load the room
+
+                room = LoadRoomFromAsset(roomAsset);
+            }
+
+            // Return the room
+
+            return room;
+        }
+
+        /// <summary>
         /// Loads a room 
         /// </summary>
         /// <param name="roomAsset">The rooms asset</param>
@@ -129,7 +161,7 @@ namespace Gang1057.Ludiwuri.Game.World
 
         private void Awake()
         {
-            LoadRoom("TestRoom");
+            GetRoom("TestRoom");
         }
 
         #endregion
