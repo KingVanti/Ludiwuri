@@ -42,6 +42,11 @@ namespace Gang1057.Ludiwuri.Game.Player
         /// </summary>
         private float Speed { get { return Running ? runSpeed : walkSpeed; } }
 
+        /// <summary>
+        /// The direction in whcih the player is currently facing
+        /// </summary>
+        private Directions FaceingDirection { get { return rb.velocity.x < 0 ? Directions.Left : Directions.Right; } }
+
         #endregion
 
         #region Methods
@@ -55,6 +60,26 @@ namespace Gang1057.Ludiwuri.Game.Player
 
             rb.velocity = new Vector2(Input.GetAxis("Horizontal") * Speed, 0);
         }
+
+        #endregion
+
+        #region Enums
+
+        /// <summary>
+        /// The directions the player can face
+        /// </summary>
+        public enum Directions
+        {
+            /// <summary>
+            /// The player is facing to the left
+            /// </summary>
+            Left,
+
+            /// <summary>
+            /// The player is facing to the right
+            /// </summary>
+            Right
+        };
 
         #endregion
 
