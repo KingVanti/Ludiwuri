@@ -12,17 +12,21 @@ namespace Gang1057.Ludiwuri.Game.Player
 
         #region Fields
 
+#pragma warning disable 649
+
         /// <summary>
         /// Backing field to <see cref="MovementController"/>
         /// </summary>
         [SerializeField] private PlayerMovementController _movementController;
 
-        #endregion
+#pragma warning restore 649
 
         /// <summary>
         /// Backing field to <see cref="CurrentInteractable"/>
         /// </summary>
         private IInteractable _currentInteractable;
+
+        #endregion
 
         #region Properties
 
