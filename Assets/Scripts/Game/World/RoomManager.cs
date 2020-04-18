@@ -15,11 +15,11 @@ namespace Gang1057.Ludiwuri.Game.World
         /// <summary>
         /// A dictionary of cached rooms, indexed by their name
         /// </summary>
-        private Dictionary<string, GameObject> cachedRooms = new Dictionary<string, GameObject>();
+        private Dictionary<string, Room> cachedRooms = new Dictionary<string, Room>();
         /// <summary>
         /// The currently active room
         /// </summary>
-        private GameObject currentRoom;
+        private Room currentRoom;
 
         #endregion
 
@@ -33,7 +33,7 @@ namespace Gang1057.Ludiwuri.Game.World
         {
             // Declare variable for the room
 
-            GameObject room = null;
+            Room room = null;
 
             // If the room is already cached
 
@@ -67,15 +67,19 @@ namespace Gang1057.Ludiwuri.Game.World
         /// </summary>
         /// <param name="roomAsset">The rooms asset</param>
         /// <returns>The loaded room</returns>
-        private GameObject LoadRoomFromAsset(RoomAsset roomAsset)
+        private Room LoadRoomFromAsset(RoomAsset roomAsset)
         {
             // Instantiate the prefab
 
-            GameObject room = Instantiate(roomAsset.RoomPrefab, transform);
+            GameObject roomGameObject = Instantiate(roomAsset.RoomPrefab, transform);
+
+            // Create a room
+
+            Room room = new Room(roomAsset.name, roomGameObject);
 
             // Cache the room
 
-            cachedRooms.Add(roomAsset.RoomName, room);
+            cachedRooms.Add(room.Name, room);
 
             // Return the loaded room
 
@@ -86,19 +90,19 @@ namespace Gang1057.Ludiwuri.Game.World
         /// Enters the given room
         /// </summary>
         /// <param name="room">The room</param>
-        private void EnterRoom(GameObject room)
+        private void EnterRoom(Room room)
         {
             // If there is currently a room
 
             if (currentRoom != null)
 
-                // Deactivate it
+                // Exit it
 
-                currentRoom.SetActive(false);
+                currentRoom.OnExit();
 
-            // Activate the new room
+            // Enter the new room
 
-            room.SetActive(true);
+            room.OnEnter();
 
             // TODO: Teleport player to door
 
