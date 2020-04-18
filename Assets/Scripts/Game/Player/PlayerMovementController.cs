@@ -31,15 +31,15 @@ namespace Gang1057.Ludiwuri.Game.Player
         /// <summary>
         /// Backing field to <see cref="Running"/>
         /// </summary>
-        private bool running = false;
+        private bool _running = false;
         /// <summary>
         /// Backing field to <see cref="Speed"/>
         /// </summary>
-        private float speed = 0;
+        private float _speed = 0;
         /// <summary>
         /// Backing field to <see cref="FaceingDirection"/>
         /// </summary>
-        private Directions faceingDirection = Directions.Right;
+        private Directions _faceingDirection = Directions.Right;
 
         #endregion
 
@@ -50,10 +50,10 @@ namespace Gang1057.Ludiwuri.Game.Player
         /// </summary>
         private bool Running
         {
-            get { return running; }
+            get { return _running; }
             set
             {
-                running = value;
+                _running = value;
 
                 // TODO: Update animator
             }
@@ -64,10 +64,10 @@ namespace Gang1057.Ludiwuri.Game.Player
         /// </summary>
         private float Speed
         {
-            get { return speed; }
+            get { return _speed; }
             set
             {
-                speed = value;
+                _speed = value;
 
                 // TODO: Update animator
             }
@@ -78,10 +78,10 @@ namespace Gang1057.Ludiwuri.Game.Player
         /// </summary>
         private Directions FaceingDirection
         {
-            get { return faceingDirection; }
+            get { return _faceingDirection; }
             set
             {
-                faceingDirection = value;
+                _faceingDirection = value;
 
                 // TODO: Update sprite renderer
             }
