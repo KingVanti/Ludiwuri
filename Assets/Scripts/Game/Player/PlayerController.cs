@@ -74,7 +74,7 @@ namespace Gang1057.Ludiwuri.Game.Player
         {
             // If the player presses "Interact" and is standing in front of something to interact with
 
-            if (Input.GetButton("Interact") && CurrentInteractable != null)
+            if (Input.GetButtonDown("Interact") && CurrentInteractable != null)
 
                 // Interact with it
 
