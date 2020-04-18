@@ -48,6 +48,18 @@ namespace Gang1057.Ludiwuri.Game.World
 
         #endregion
 
+        #region Methods
+
+        /// <summary>
+        /// Teleports the player to this door
+        /// </summary>
+        public void TeleportPlayerHere()
+        {
+            // TODO: Teleport player to this door
+        }
+
+        #endregion
+
     }
 
 }

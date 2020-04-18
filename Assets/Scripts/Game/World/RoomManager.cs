@@ -15,11 +15,11 @@ namespace Gang1057.Ludiwuri.Game.World
         /// <summary>
         /// A dictionary of cached rooms, indexed by their name
         /// </summary>
-        private Dictionary<string, GameObject> cachedRooms = new Dictionary<string, GameObject>();
+        private Dictionary<string, Room> cachedRooms = new Dictionary<string, Room>();
         /// <summary>
         /// The currently active room
         /// </summary>
-        private GameObject currentRoom;
+        private Room currentRoom;
 
         #endregion
 
@@ -33,7 +33,7 @@ namespace Gang1057.Ludiwuri.Game.World
         {
             // Declare variable for the room
 
-            GameObject room = null;
+            Room room = null;
 
             // If the room is already cached
 
@@ -63,48 +63,58 @@ namespace Gang1057.Ludiwuri.Game.World
 
 
         /// <summary>
-        /// Loads a room 
-        /// </summary>
-        /// <param name="roomAsset">The rooms asset</param>
-        /// <returns>The loaded room</returns>
-        private GameObject LoadRoomFromAsset(RoomAsset roomAsset)
-        {
-            // Instantiate the prefab
-
-            GameObject room = Instantiate(roomAsset.RoomPrefab, transform);
-
-            // Cache the room
-
-            cachedRooms.Add(roomAsset.RoomName, room);
-
-            // Return the loaded room
-
-            return room;
-        }
-
-        /// <summary>
         /// Enters the given room
         /// </summary>
         /// <param name="room">The room</param>
-        private void EnterRoom(GameObject room)
+        private void EnterRoom(Room room)
         {
-            // If there is currently a room
+            // Get the current rooms name
 
-            if (currentRoom != null)
+            string lastRoomName = currentRoom.Name;
 
-                // Deactivate it
+            // Exit the current room
 
-                currentRoom.SetActive(false);
+            currentRoom.OnExit();
 
-            // Activate the new room
+            // Enter the new room
 
-            room.SetActive(true);
+            room.OnEnter();
 
-            // TODO: Teleport player to door
+            // Get the door that connects to the previous room
+
+            Door enterDoor = room.GetDoorToRoom(lastRoomName);
+
+            // Teleport the player to it
+
+            enterDoor.TeleportPlayerHere();
 
             // Set the room to be the current one
 
             currentRoom = room;
+        }
+
+        /// <summary>
+        /// Loads a room 
+        /// </summary>
+        /// <param name="roomAsset">The rooms asset</param>
+        /// <returns>The loaded room</returns>
+        private Room LoadRoomFromAsset(RoomAsset roomAsset)
+        {
+            // Instantiate the prefab
+
+            GameObject roomGameObject = Instantiate(roomAsset.RoomPrefab, transform);
+
+            // Create a room
+
+            Room room = new Room(roomAsset.name, roomGameObject);
+
+            // Cache the room
+
+            cachedRooms.Add(room.Name, room);
+
+            // Return the loaded room
+
+            return room;
         }
 
         private void Awake()
