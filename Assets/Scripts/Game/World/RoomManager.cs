@@ -63,30 +63,6 @@ namespace Gang1057.Ludiwuri.Game.World
 
 
         /// <summary>
-        /// Loads a room 
-        /// </summary>
-        /// <param name="roomAsset">The rooms asset</param>
-        /// <returns>The loaded room</returns>
-        private Room LoadRoomFromAsset(RoomAsset roomAsset)
-        {
-            // Instantiate the prefab
-
-            GameObject roomGameObject = Instantiate(roomAsset.RoomPrefab, transform);
-
-            // Create a room
-
-            Room room = new Room(roomAsset.name, roomGameObject);
-
-            // Cache the room
-
-            cachedRooms.Add(room.Name, room);
-
-            // Return the loaded room
-
-            return room;
-        }
-
-        /// <summary>
         /// Enters the given room
         /// </summary>
         /// <param name="room">The room</param>
@@ -109,6 +85,30 @@ namespace Gang1057.Ludiwuri.Game.World
             // Set the room to be the current one
 
             currentRoom = room;
+        }
+
+        /// <summary>
+        /// Loads a room 
+        /// </summary>
+        /// <param name="roomAsset">The rooms asset</param>
+        /// <returns>The loaded room</returns>
+        private Room LoadRoomFromAsset(RoomAsset roomAsset)
+        {
+            // Instantiate the prefab
+
+            GameObject roomGameObject = Instantiate(roomAsset.RoomPrefab, transform);
+
+            // Create a room
+
+            Room room = new Room(roomAsset.name, roomGameObject);
+
+            // Cache the room
+
+            cachedRooms.Add(room.Name, room);
+
+            // Return the loaded room
+
+            return room;
         }
 
         private void Awake()
