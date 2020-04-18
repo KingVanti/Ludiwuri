@@ -29,6 +29,10 @@ namespace Gang1057.Ludiwuri.Game.Player
         /// The renderer used to show the player
         /// </summary>
         [SerializeField] private SpriteRenderer sr;
+        /// <summary>
+        /// Used to animate the player
+        /// </summary>
+        [SerializeField] private Animator anim;
 
 #pragma warning restore 649
 
@@ -71,7 +75,11 @@ namespace Gang1057.Ludiwuri.Game.Player
         private float Speed
         {
             get { return _speed; }
-            set { _speed = value; }
+            set
+            {
+                _speed = value;
+                anim.SetFloat("Speed", value);
+            }
         }
 
         /// <summary>

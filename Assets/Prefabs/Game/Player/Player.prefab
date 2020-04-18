@@ -182,3 +182,4 @@ MonoBehaviour:
   runSpeed: 2
   rb: {fileID: 4016465436765780399}
   sr: {fileID: 7568852800391853380}
+  anim: {fileID: 2328610495546073670}
