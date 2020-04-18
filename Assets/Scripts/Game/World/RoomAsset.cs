@@ -12,10 +12,14 @@ namespace Gang1057.Ludiwuri.Game.World
 
         #region Fields
 
+#pragma warning disable 649
+
         /// <summary>
         /// Backing field to <see cref="RoomPrefab"/>
         /// </summary>
         [SerializeField] private GameObject _roomPrefab;
+
+#pragma warning restore 649
 
         #endregion
 
