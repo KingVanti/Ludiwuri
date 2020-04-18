@@ -6,7 +6,7 @@ namespace Gang1057.Ludiwuri.Game.World
     /// <summary>
     /// Used to move between rooms
     /// </summary>
-    public class Door : MonoBehaviour, ISpawnPoint
+    public class Door : SpawnPoint
     {
 
         #region Fields

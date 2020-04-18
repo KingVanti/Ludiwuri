@@ -4,9 +4,9 @@ namespace Gang1057.Ludiwuri.Game.World
 {
 
     /// <summary>
-    /// Implemented by all scripts the player can spawn on
+    /// Base class for all scripts the player can spawn on
     /// </summary>
-    public interface ISpawnPoint
+    public abstract class SpawnPoint : MonoBehaviour
     {
 
         #region Properties
