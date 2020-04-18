@@ -56,7 +56,9 @@ namespace Gang1057.Ludiwuri.Game.World
         /// <inheritdoc/>
         public void Interact()
         {
-            // TODO: Go through the door
+            // Go to the connected room
+
+            RoomManager.Instance.EnterRoom(ConnectedRoomName);
         }
 
         #endregion
