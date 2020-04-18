@@ -46,17 +46,10 @@ namespace Gang1057.Ludiwuri.Game.World
             set { _connectedRoomName = value; }
         }
 
-        #endregion
-
-        #region Methods
-
         /// <summary>
-        /// Teleports the player to this door
+        /// The position the player is teleported to when exiting this door
         /// </summary>
-        public void TeleportPlayerHere()
-        {
-            // TODO: Teleport player to this door
-        }
+        public Vector2 DoorExitPosition { get { return transform.position; } }
 
         #endregion
 
