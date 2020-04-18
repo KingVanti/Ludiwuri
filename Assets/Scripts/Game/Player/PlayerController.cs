@@ -58,6 +58,16 @@ namespace Gang1057.Ludiwuri.Game.Player
         #region Methods
 
         /// <summary>
+        /// Teleports the player to a position
+        /// </summary>
+        /// <param name="position">The position to teleport to</param>
+        public void TeleportTo(Vector2 position)
+        {
+            transform.position = position;
+        }
+
+
+        /// <summary>
         /// Called each frame
         /// </summary>
         private void Update()
