@@ -37,6 +37,15 @@ namespace Gang1057.Ludiwuri.Game.World
 
         #endregion
 
+        #region Properties
+
+        /// <summary>
+        /// The singleton instance of this class
+        /// </summary>
+        public static RoomManager Instance { get; private set; }
+
+        #endregion
+
         #region Methods
 
         /// <summary>
@@ -106,6 +115,10 @@ namespace Gang1057.Ludiwuri.Game.World
             // Teleport the player to the bed
 
             player.TeleportTo(bed.Position);
+
+            // Set the room as the current room
+
+            currentRoom = room;
         }
 
         /// <summary>
@@ -171,6 +184,8 @@ namespace Gang1057.Ludiwuri.Game.World
 
         private void Awake()
         {
+            Instance = this;
+
             // Enter the initial room
 
             EnterInitialRoom();
