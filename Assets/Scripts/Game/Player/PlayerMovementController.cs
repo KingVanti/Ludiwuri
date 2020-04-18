@@ -55,6 +55,8 @@ namespace Gang1057.Ludiwuri.Game.Player
             {
                 _running = value;
 
+                Speed = value ? runSpeed : walkSpeed;
+
                 // TODO: Update animator
             }
         }
@@ -65,12 +67,7 @@ namespace Gang1057.Ludiwuri.Game.Player
         private float Speed
         {
             get { return _speed; }
-            set
-            {
-                _speed = value;
-
-                // TODO: Update animator
-            }
+            set { _speed = value; }
         }
 
         /// <summary>
@@ -96,6 +93,13 @@ namespace Gang1057.Ludiwuri.Game.Player
         /// </summary>
         private void Update()
         {
+            // Update "Running" property
+
+            bool running = Input.GetButton("Sprint");
+
+            if (running != Running)
+                Running = running;
+
             // Move the player horizontally
 
             rb.velocity = new Vector2(Input.GetAxis("Horizontal") * Speed, 0);
