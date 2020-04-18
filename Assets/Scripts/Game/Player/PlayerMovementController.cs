@@ -30,6 +30,34 @@ namespace Gang1057.Ludiwuri.Game.Player
 
         #endregion
 
+        #region Properties
+
+        /// <summary>
+        /// Indicates whether the player is currently running
+        /// </summary>
+        private bool Running { get { return Input.GetButton("Sprint"); } }
+
+        /// <summary>
+        /// The speed with which the player is currently moving
+        /// </summary>
+        private float Speed { get { return Running ? runSpeed : walkSpeed; } }
+
+        #endregion
+
+        #region Methods
+
+        /// <summary>
+        /// Called every frame
+        /// </summary>
+        private void Update()
+        {
+            // Move the player horizontally
+
+            rb.velocity = new Vector2(Input.GetAxis("Horizontal") * Speed, 0);
+        }
+
+        #endregion
+
     }
 
 }
