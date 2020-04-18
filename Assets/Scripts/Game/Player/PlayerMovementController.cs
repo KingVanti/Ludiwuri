@@ -25,6 +25,10 @@ namespace Gang1057.Ludiwuri.Game.Player
         /// The rigid-body used for moving the player
         /// </summary>
         [SerializeField] private Rigidbody2D rb;
+        /// <summary>
+        /// The renderer used to show the player
+        /// </summary>
+        [SerializeField] private SpriteRenderer sr;
 
 #pragma warning restore 649
 
@@ -80,7 +84,7 @@ namespace Gang1057.Ludiwuri.Game.Player
             {
                 _faceingDirection = value;
 
-                // TODO: Update sprite renderer
+                sr.flipX = value == Directions.Left;
             }
         }
 
@@ -103,6 +107,13 @@ namespace Gang1057.Ludiwuri.Game.Player
             // Move the player horizontally
 
             rb.velocity = new Vector2(Input.GetAxis("Horizontal") * Speed, 0);
+
+            // Update "FaceingDirection" property
+
+            Directions faceingDirection = rb.velocity.x < 0 ? Directions.Left : Directions.Right;
+
+            if (faceingDirection != FaceingDirection)
+                FaceingDirection = faceingDirection;
         }
 
         #endregion
