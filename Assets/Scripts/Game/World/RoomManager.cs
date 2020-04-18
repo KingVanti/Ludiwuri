@@ -101,6 +101,10 @@ namespace Gang1057.Ludiwuri.Game.World
             room.SetActive(true);
 
             // TODO: Teleport player to door
+
+            // Set the room to be the current one
+
+            currentRoom = room;
         }
 
         private void Awake()
