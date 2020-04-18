@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Gang1057.Ludiwuri.Game.Player;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Gang1057.Ludiwuri.Game.World
@@ -11,6 +12,15 @@ namespace Gang1057.Ludiwuri.Game.World
     {
 
         #region Fields
+
+#pragma warning disable 649
+
+        /// <summary>
+        /// The player
+        /// </summary>
+        [SerializeField] private PlayerController player;
+
+#pragma warning restore 649
 
         /// <summary>
         /// A dictionary of cached rooms, indexed by their name
@@ -86,7 +96,7 @@ namespace Gang1057.Ludiwuri.Game.World
 
             // Teleport the player to it
 
-            enterDoor.TeleportPlayerHere();
+            player.TeleportTo(enterDoor.DoorExitPosition);
 
             // Set the room to be the current one
 
