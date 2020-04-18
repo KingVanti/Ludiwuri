@@ -47,6 +47,22 @@ namespace Gang1057.Ludiwuri.Game.World
         #region Methods
 
         /// <summary>
+        /// Prepares the room for entering
+        /// </summary>
+        public void OnEnter()
+        {
+            roomGameObject.SetActive(true);
+        }
+
+        /// <summary>
+        /// Prepares the room for exiting
+        /// </summary>
+        public void OnExit()
+        {
+            roomGameObject.SetActive(false);
+        }
+
+        /// <summary>
         /// Get a door in this room that connects to a specific other room
         /// </summary>
         /// <param name="roomName">The name of the room</param>
