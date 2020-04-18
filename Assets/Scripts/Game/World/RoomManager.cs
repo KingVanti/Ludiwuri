@@ -96,7 +96,7 @@ namespace Gang1057.Ludiwuri.Game.World
 
             // Teleport the player to it
 
-            player.TeleportTo(enterDoor.DoorExitPosition);
+            player.TeleportTo(enterDoor.Position);
 
             // Set the room to be the current one
 

@@ -6,7 +6,7 @@ namespace Gang1057.Ludiwuri.Game.World
     /// <summary>
     /// Used to move between rooms
     /// </summary>
-    public class Door : MonoBehaviour
+    public class Door : MonoBehaviour, ISpawnPoint
     {
 
         #region Fields
@@ -46,10 +46,8 @@ namespace Gang1057.Ludiwuri.Game.World
             set { _connectedRoomName = value; }
         }
 
-        /// <summary>
-        /// The position the player is teleported to when exiting this door
-        /// </summary>
-        public Vector2 DoorExitPosition { get { return transform.position; } }
+        /// <inheritdoc/>
+        public Vector2 Position { get { return transform.position; } }
 
         #endregion
 
