@@ -9,7 +9,7 @@
 
         #region Methods
 
-        public void Interact();
+        void Interact();
 
         #endregion
 
