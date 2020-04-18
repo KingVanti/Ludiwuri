@@ -84,7 +84,9 @@ namespace Gang1057.Ludiwuri.Game.World
 
             Door enterDoor = room.GetDoorToRoom(lastRoomName);
 
-            // TODO: Teleport player to door
+            // Teleport the player to it
+
+            enterDoor.TeleportPlayerHere();
 
             // Set the room to be the current one
 
