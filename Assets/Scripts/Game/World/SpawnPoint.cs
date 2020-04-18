@@ -4,9 +4,9 @@ namespace Gang1057.Ludiwuri.Game.World
 {
 
     /// <summary>
-    /// Base class for all scripts the player can spawn on
+    /// Object that the player can spawn on
     /// </summary>
-    public abstract class SpawnPoint : MonoBehaviour
+    public class SpawnPoint : MonoBehaviour
     {
 
         #region Properties
@@ -14,7 +14,7 @@ namespace Gang1057.Ludiwuri.Game.World
         /// <summary>
         /// The position at which to spawn the player
         /// </summary>
-        Vector2 Position { get; }
+        public virtual Vector2 Position { get { return transform.position; } }
 
         #endregion
 

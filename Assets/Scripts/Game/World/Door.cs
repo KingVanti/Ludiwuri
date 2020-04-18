@@ -46,9 +46,6 @@ namespace Gang1057.Ludiwuri.Game.World
             set { _connectedRoomName = value; }
         }
 
-        /// <inheritdoc/>
-        public Vector2 Position { get { return transform.position; } }
-
         #endregion
 
     }
