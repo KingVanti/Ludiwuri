@@ -133,3 +133,4 @@ MonoBehaviour:
   walkSpeed: 0.84
   runSpeed: 1.2
   rb: {fileID: 4016465436765780399}
+  sr: {fileID: 7568852800391853380}
