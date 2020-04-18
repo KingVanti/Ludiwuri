@@ -89,7 +89,7 @@ namespace Gang1057.Ludiwuri.Game.World
         /// <summary>
         /// Loads the room the game starts in
         /// </summary>
-        private void LoadInitialRoom()
+        private void EnterInitialRoom()
         {
             // Get the room with the initial rooms name
 
@@ -161,7 +161,9 @@ namespace Gang1057.Ludiwuri.Game.World
 
         private void Awake()
         {
-            GetRoom("TestRoom");
+            // Enter the initial room
+
+            EnterInitialRoom();
         }
 
         #endregion
