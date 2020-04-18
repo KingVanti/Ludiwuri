@@ -68,17 +68,21 @@ namespace Gang1057.Ludiwuri.Game.World
         /// <param name="room">The room</param>
         private void EnterRoom(Room room)
         {
-            // If there is currently a room
+            // Get the current rooms name
 
-            if (currentRoom != null)
+            string lastRoomName = currentRoom.Name;
 
-                // Exit it
+            // Exit the current room
 
-                currentRoom.OnExit();
+            currentRoom.OnExit();
 
             // Enter the new room
 
             room.OnEnter();
+
+            // Get the door that connects to the previous room
+
+            Door enterDoor = room.GetDoorToRoom(lastRoomName);
 
             // TODO: Teleport player to door
 
