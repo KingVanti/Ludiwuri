@@ -4,9 +4,9 @@ namespace Gang1057.Ludiwuri.Game.Player
 {
 
     /// <summary>
-    /// Controls the player
+    /// Base class for all player controllers
     /// </summary>
-    public class PlayerController : MonoBehaviour
+    public abstract class PlayerController : MonoBehaviour
     {
 
         #region Fields
@@ -30,7 +30,6 @@ namespace Gang1057.Ludiwuri.Game.Player
         }
 
         #endregion
-
     }
 
 }
