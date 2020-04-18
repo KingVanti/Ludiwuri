@@ -58,6 +58,20 @@ namespace Gang1057.Ludiwuri.Game.Player
         #region Methods
 
         /// <summary>
+        /// Called each frame
+        /// </summary>
+        private void Update()
+        {
+            // If the player presses "Interact" and is standing in front of something to interact with
+
+            if (Input.GetButton("Interact") && CurrentInteractable != null)
+
+                // Interact with it
+
+                CurrentInteractable.Interact();
+        }
+
+        /// <summary>
         /// Called when a trigger enters the players collider
         /// </summary>
         /// <param name="collider">The collider that entered</param>
