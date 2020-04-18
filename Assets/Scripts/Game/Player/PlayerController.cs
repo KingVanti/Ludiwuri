@@ -35,6 +35,9 @@ namespace Gang1057.Ludiwuri.Game.Player
             set { _movementController = value; }
         }
 
+        /// <summary>
+        /// The interactable the player currently stands in front of. Null if there is none
+        /// </summary>
         public IInteractable CurrentInteractable
         {
             get { return _currentInteractable; }
