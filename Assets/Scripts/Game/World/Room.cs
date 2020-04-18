@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Gang1057.Ludiwuri.Game.World
@@ -20,6 +21,10 @@ namespace Gang1057.Ludiwuri.Game.World
         /// The doors that lead in and out of this room
         /// </summary>
         private Door[] doors;
+        /// <summary>
+        /// The spawn-points the player can spawn at in this room
+        /// </summary>
+        private Dictionary<string, SpawnPoint> spawnPoints = new Dictionary<string, SpawnPoint>();
 
         #endregion
 
@@ -40,6 +45,9 @@ namespace Gang1057.Ludiwuri.Game.World
             this.roomGameObject = roomGameObject;
 
             doors = roomGameObject.GetComponentsInChildren<Door>();
+
+            foreach (SpawnPoint spawnPoint in roomGameObject.GetComponentsInChildren<SpawnPoint>())
+                spawnPoints.Add(spawnPoint.gameObject.name, spawnPoint);
         }
 
         #endregion
@@ -70,6 +78,16 @@ namespace Gang1057.Ludiwuri.Game.World
         public Door GetDoorToRoom(string roomName)
         {
             return doors.Where(d => d.ConnectedRoomName == roomName).FirstOrDefault();
+        }
+
+        /// <summary>
+        /// Gets a spawn-point with a specific name in this room
+        /// </summary>
+        /// <param name="name">The spawn-points name</param>
+        /// <returns>The spawn-point</returns>
+        public SpawnPoint GetSpawnPoint(string name)
+        {
+            return spawnPoints[name];
         }
 
         #endregion
