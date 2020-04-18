@@ -6,7 +6,7 @@ namespace Gang1057.Ludiwuri.Game.World
     /// <summary>
     /// Used to move between rooms
     /// </summary>
-    public class Door : SpawnPoint
+    public class Door : SpawnPoint, IInteractable
     {
 
         #region Fields
@@ -44,6 +44,16 @@ namespace Gang1057.Ludiwuri.Game.World
         {
             get { return _connectedRoomName; }
             set { _connectedRoomName = value; }
+        }
+
+        #endregion
+
+        #region Methods
+
+        /// <inheritdoc/>
+        public void Interact()
+        {
+            // TODO: Go through the door
         }
 
         #endregion
