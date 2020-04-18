@@ -28,6 +28,19 @@ namespace Gang1057.Ludiwuri.Game.Player
 
 #pragma warning restore 649
 
+        /// <summary>
+        /// Backing field to <see cref="Running"/>
+        /// </summary>
+        private bool running = false;
+        /// <summary>
+        /// Backing field to <see cref="Speed"/>
+        /// </summary>
+        private float speed = 0;
+        /// <summary>
+        /// Backing field to <see cref="FaceingDirection"/>
+        /// </summary>
+        private Directions faceingDirection = Directions.Right;
+
         #endregion
 
         #region Properties
@@ -35,17 +48,44 @@ namespace Gang1057.Ludiwuri.Game.Player
         /// <summary>
         /// Indicates whether the player is currently running
         /// </summary>
-        private bool Running { get { return Input.GetButton("Sprint"); } }
+        private bool Running
+        {
+            get { return running; }
+            set
+            {
+                running = value;
+
+                // TODO: Update animator
+            }
+        }
 
         /// <summary>
         /// The speed with which the player is currently moving
         /// </summary>
-        private float Speed { get { return Running ? runSpeed : walkSpeed; } }
+        private float Speed
+        {
+            get { return speed; }
+            set
+            {
+                speed = value;
+
+                // TODO: Update animator
+            }
+        }
 
         /// <summary>
         /// The direction in whcih the player is currently facing
         /// </summary>
-        private Directions FaceingDirection { get { return rb.velocity.x < 0 ? Directions.Left : Directions.Right; } }
+        private Directions FaceingDirection
+        {
+            get { return faceingDirection; }
+            set
+            {
+                faceingDirection = value;
+
+                // TODO: Update sprite renderer
+            }
+        }
 
         #endregion
 
