@@ -93,6 +93,14 @@ namespace Gang1057.Ludiwuri.Game.Player
         #region Methods
 
         /// <summary>
+        /// Called when the object is initialized
+        /// </summary>
+        private void Awake()
+        {
+            Speed = walkSpeed;
+        }
+
+        /// <summary>
         /// Called every frame
         /// </summary>
         private void Update()
