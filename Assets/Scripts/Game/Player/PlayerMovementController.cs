@@ -116,12 +116,17 @@ namespace Gang1057.Ludiwuri.Game.Player
 
             rb.velocity = new Vector2(Input.GetAxis("Horizontal") * Speed, 0);
 
-            // Update "FaceingDirection" property
+            // If the player is moving
 
-            Directions faceingDirection = rb.velocity.x < 0 ? Directions.Left : Directions.Right;
+            if (Mathf.Abs(rb.velocity.x) > 0.1f)
+            {
+                // Update "FaceingDirection" property
 
-            if (faceingDirection != FaceingDirection)
-                FaceingDirection = faceingDirection;
+                Directions faceingDirection = rb.velocity.x < 0 ? Directions.Left : Directions.Right;
+
+                if (faceingDirection != FaceingDirection)
+                    FaceingDirection = faceingDirection;
+            }
         }
 
         #endregion
