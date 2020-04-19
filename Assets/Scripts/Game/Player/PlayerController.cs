@@ -1,4 +1,5 @@
 ﻿using Gang1057.Ludiwuri.Game.World;
+using TMPro;
 using UnityEngine;
 
 namespace Gang1057.Ludiwuri.Game.Player
@@ -35,6 +36,7 @@ namespace Gang1057.Ludiwuri.Game.Player
         /// Used to play the match mini-game
         /// </summary>
         [SerializeField] private MatchMinigameManager minigameManager;
+        [SerializeField] private TextMeshProUGUI matchCountText;
 
 #pragma warning restore 649
 
@@ -84,7 +86,11 @@ namespace Gang1057.Ludiwuri.Game.Player
         public int MatchCount
         {
             get { return _matchCount; }
-            set { _matchCount = value; }
+            set
+            {
+                _matchCount = value;
+                matchCountText.text = value.ToString();
+            }
         }
 
         public bool CandleLit
