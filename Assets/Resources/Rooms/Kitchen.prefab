@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4885911240877870355}
   m_Layer: 0
-  m_Name: Corridor TopFloor
+  m_Name: Kitchen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
