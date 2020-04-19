@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8146748058436507411}
   - component: {fileID: 1806724932625460301}
-  - component: {fileID: 2529573046469667330}
   m_Layer: 0
   m_Name: WindowLight
   m_TagString: Untagged
@@ -75,19 +74,6 @@ MonoBehaviour:
   - {x: 0.32698262, y: 0.5668621, z: 0}
   - {x: -0.03912723, y: 0.8515203, z: 0}
   - {x: -0.37236345, y: 0.5900099, z: 0}
---- !u!114 &2529573046469667330
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3589696198098265601}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90c08f33f978b2d46954d7875f7ead4b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lightSource: {fileID: 1806724932625460301}
 --- !u!1 &5390574821947698152
 GameObject:
   m_ObjectHideFlags: 0
