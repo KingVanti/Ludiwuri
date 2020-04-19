@@ -54,6 +54,12 @@ namespace Gang1057.Ludiwuri.Game.Player
         #region Properties
 
         /// <summary>
+        /// Allows to lock the player in place
+        /// </summary>
+        public bool Locked { get; set; }
+
+
+        /// <summary>
         /// Indicates whether the player is currently running
         /// </summary>
         private bool Running
@@ -68,6 +74,11 @@ namespace Gang1057.Ludiwuri.Game.Player
                 // TODO: Update animator
             }
         }
+
+        /// <summary>
+        /// Indicates if the player can move
+        /// </summary>
+        private bool CanMove { get { return !Locked; } }
 
         /// <summary>
         /// The speed with which the player is currently moving
@@ -113,16 +124,21 @@ namespace Gang1057.Ludiwuri.Game.Player
         /// </summary>
         private void Update()
         {
-            // Update "Running" property
+            // If the player can move
 
-            bool running = Input.GetButton("Sprint");
+            if (CanMove)
+            {
+                // Update "Running" property
 
-            if (running != Running)
-                Running = running;
+                bool running = Input.GetButton("Sprint");
 
-            // Move the player horizontally
+                if (running != Running)
+                    Running = running;
 
-            rb.velocity = new Vector2(Input.GetAxis("Horizontal") * Speed, 0);
+                // Move the player horizontally
+
+                rb.velocity = new Vector2(Input.GetAxis("Horizontal") * Speed, 0);
+            }
 
             // If the player is moving
 
