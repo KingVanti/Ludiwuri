@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Gang1057.Ludiwuri.Game.Player;
+using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
 
 namespace Gang1057.Ludiwuri.Game.World
@@ -27,7 +28,7 @@ namespace Gang1057.Ludiwuri.Game.World
         public bool Lit { get; private set; } = true;
 
         /// <inheritdoc/>
-        public bool Interactable { get { return !Lit; } }
+        public bool Interactable { get { return !Lit && PlayerController.Instance.CandleLit; } }
 
         #endregion
 
