@@ -121,7 +121,7 @@ namespace Gang1057.Ludiwuri.Game.Player
         /// <param name="room">The room that was entered</param>
         public void OnRoomChange(Room room)
         {
-            roomConstraint = (room.RoomWidth / 2) - 0.5f;
+            roomConstraint = (room.RoomWidth / 2) - 0.25f;
         }
 
 
