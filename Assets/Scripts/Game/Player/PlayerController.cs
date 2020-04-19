@@ -10,6 +10,15 @@ namespace Gang1057.Ludiwuri.Game.Player
     public class PlayerController : MonoBehaviour
     {
 
+        #region Static Properties
+
+        /// <summary>
+        /// Singleton instance
+        /// </summary>
+        public static PlayerController Instance { get; private set; }
+
+        #endregion
+
         #region Fields
 
 #pragma warning disable 649
@@ -97,6 +106,11 @@ namespace Gang1057.Ludiwuri.Game.Player
             MatchCount--;
         }
 
+
+        private void Awake()
+        {
+            Instance = this;
+        }
 
         /// <summary>
         /// Called each frame
