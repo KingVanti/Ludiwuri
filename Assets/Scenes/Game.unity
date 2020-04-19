@@ -317,6 +317,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3778613723083938048, guid: 7ff5a8768b5c08544b220750c240297f,
+        type: 3}
+      propertyPath: candleGameobject
+      value: 
+      objectReference: {fileID: 1669711327}
     - target: {fileID: 7568852800391853381, guid: 7ff5a8768b5c08544b220750c240297f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -394,6 +399,12 @@ MonoBehaviour:
 --- !u!4 &1494329893 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7568852800391853381, guid: 7ff5a8768b5c08544b220750c240297f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1020805434}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1669711327 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7228571698556566354, guid: 7ff5a8768b5c08544b220750c240297f,
     type: 3}
   m_PrefabInstance: {fileID: 1020805434}
   m_PrefabAsset: {fileID: 0}

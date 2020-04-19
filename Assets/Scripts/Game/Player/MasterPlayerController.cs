@@ -16,7 +16,7 @@ namespace Gang1057.Ludiwuri.Game.Player
         /// <summary>
         /// The lamp the player is holding
         /// </summary>
-        [SerializeField] private GameObject lampGameobject;
+        [SerializeField] private GameObject candleGameobject;
 
 #pragma warning restore 649
 
@@ -42,13 +42,16 @@ namespace Gang1057.Ludiwuri.Game.Player
 
         #region Methods
 
-        public void OnCollectLamp()
+        /// <summary>
+        /// Called when the candle is collected
+        /// </summary>
+        public void OnCollectCandle()
         {
-            CurrentPlayerController = GetComponent<WithLampPlayerController>();
+            CurrentPlayerController = GetComponent<WithCandlePlayerController>();
 
             // TODO: Update animator
 
-            lampGameobject.SetActive(true);
+            candleGameobject.SetActive(true);
         }
 
 
@@ -56,7 +59,7 @@ namespace Gang1057.Ludiwuri.Game.Player
         {
             // At the beginning the player starts off without a lamp
 
-            CurrentPlayerController = GetComponent<NoLampPlayerController>();
+            CurrentPlayerController = GetComponent<NoCandlePlayerController>();
         }
 
         #endregion

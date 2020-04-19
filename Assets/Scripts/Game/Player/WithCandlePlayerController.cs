@@ -4,9 +4,9 @@ namespace Gang1057.Ludiwuri.Game.Player
 {
 
     /// <summary>
-    /// Controls the player while he has a lamp
+    /// Controls the player while he has a candle
     /// </summary>
-    public class WithLampPlayerController : PlayerController
+    public class WithCandlePlayerController : PlayerController
     {
 
         #region Fields
