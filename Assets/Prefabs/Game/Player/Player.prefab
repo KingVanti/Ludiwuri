@@ -195,7 +195,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.625}
+  m_Offset: {x: -0.095, y: 0.56}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -206,7 +206,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.6875, y: 1.25}
+  m_Size: {x: 0.5, y: 1.12}
   m_EdgeRadius: 0
 --- !u!50 &4016465436765780399
 Rigidbody2D:
@@ -260,7 +260,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdb5caafb3e2e4d4c8db7515dc1848d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lampGameobject: {fileID: 7228571698556566354}
+  candleGameobject: {fileID: 0}
 --- !u!114 &1471155125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -288,6 +288,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _movementController: {fileID: 4856617469901315105}
   maxLampHealth: 100
+  matchRefillValue: 0
+  minigameManager: {fileID: 0}
 --- !u!114 &4856617469901315105
 MonoBehaviour:
   m_ObjectHideFlags: 0
