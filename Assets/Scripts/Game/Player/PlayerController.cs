@@ -155,6 +155,7 @@ namespace Gang1057.Ludiwuri.Game.Player
             // Remove a match
 
             MatchCount--;
+            CandleLit = true;
         }
 
 
