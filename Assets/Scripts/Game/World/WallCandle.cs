@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Gang1057.Ludiwuri.Game.Player;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
 
@@ -21,12 +20,24 @@ namespace Gang1057.Ludiwuri.Game.World
 
         #endregion
 
+        #region Properties
+
+        /// <summary>
+        /// Indicates whether the candle is currently lit
+        /// </summary>
+        public bool Lit { get; private set; } = true;
+
+        /// <inheritdoc/>
+        public bool Interactable { get { return !Lit; } }
+
+        #endregion
+
         #region Methods
 
         /// <inheritdoc/>
         public void Interact()
         {
-            // TODO: Light candle
+            Lit = true;
         }
 
         #endregion
