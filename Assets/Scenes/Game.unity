@@ -431,6 +431,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0fad55c890d48b498c95a1c667923a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameSeconds: 300
+  winTimeText: {fileID: 1349657697}
 --- !u!4 &598037019
 Transform:
   m_ObjectHideFlags: 0
@@ -460,7 +462,7 @@ MonoBehaviour:
   onMinigameComplete:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 3607860372987840282}
         m_MethodName: OnMatchMinigameComplete
         m_Mode: 1
         m_Arguments:
