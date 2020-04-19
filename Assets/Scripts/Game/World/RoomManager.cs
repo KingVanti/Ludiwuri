@@ -129,6 +129,10 @@ namespace Gang1057.Ludiwuri.Game.World
             // Set the room as the current room
 
             currentRoom = room;
+
+            // Fire enter event
+
+            onRoomEntered.Invoke(room);
         }
 
         /// <summary>

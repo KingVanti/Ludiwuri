@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Gang1057.Ludiwuri.Game.World;
+using UnityEngine;
 
 namespace Gang1057.Ludiwuri.Game.Player
 {
@@ -36,6 +37,10 @@ namespace Gang1057.Ludiwuri.Game.Player
 
 #pragma warning restore 649
 
+        /// <summary>
+        /// The extend of the room in one direction
+        /// </summary>
+        private float roomConstraint;
         /// <summary>
         /// Backing field to <see cref="Running"/>
         /// </summary>
@@ -111,6 +116,16 @@ namespace Gang1057.Ludiwuri.Game.Player
         #region Methods
 
         /// <summary>
+        /// Called when a new room is entered
+        /// </summary>
+        /// <param name="room">The room that was entered</param>
+        public void OnRoomChange(Room room)
+        {
+            roomConstraint = (room.RoomWidth / 2) - 0.5f;
+        }
+
+
+        /// <summary>
         /// Called when the object is initialized
         /// </summary>
         private void Awake()
@@ -154,6 +169,13 @@ namespace Gang1057.Ludiwuri.Game.Player
             // Update animator
 
             anim.SetFloat("Speed", Speed);
+
+            // Clamp player position
+
+            transform.position = new Vector3(
+                Mathf.Clamp(transform.position.x, -roomConstraint, roomConstraint),
+                transform.position.y,
+                0);
         }
 
         #endregion

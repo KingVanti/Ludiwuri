@@ -35,6 +35,11 @@ namespace Gang1057.Ludiwuri.Game.World
         /// </summary>
         public string Name { get; private set; }
 
+        /// <summary>
+        /// The width of the room
+        /// </summary>
+        public float RoomWidth { get; private set; }
+
         #endregion
 
         #region Constructors
@@ -48,6 +53,14 @@ namespace Gang1057.Ludiwuri.Game.World
 
             foreach (SpawnPoint spawnPoint in roomGameObject.GetComponentsInChildren<SpawnPoint>())
                 spawnPoints.Add(spawnPoint.gameObject.name, spawnPoint);
+
+            foreach (Transform transform in roomGameObject.transform)
+
+                if (transform.tag == "BackWall")
+                {
+                    RoomWidth = transform.GetComponent<SpriteRenderer>().size.x;
+                    break;
+                }
         }
 
         #endregion

@@ -296,6 +296,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1494329888}
+        m_MethodName: OnRoomChange
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   initialRoomName: ChildRoom
   player: {fileID: 1020805435}
 --- !u!114 &598037018
@@ -408,6 +419,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 85a95ba3d92867449bca837fb6295eea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1494329888 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4856617469901315105, guid: 7ff5a8768b5c08544b220750c240297f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1020805434}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d84d07b246b9e8442add752bcab0c73e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &1494329893 stripped
