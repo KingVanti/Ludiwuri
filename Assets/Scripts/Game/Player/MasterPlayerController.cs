@@ -11,6 +11,15 @@ namespace Gang1057.Ludiwuri.Game.Player
 
         #region Fields
 
+#pragma warning disable 649
+
+        /// <summary>
+        /// The lamp the player is holding
+        /// </summary>
+        [SerializeField] private GameObject lampGameobject;
+
+#pragma warning restore 649
+
         /// <summary>
         /// Backing field to <see cref="CurrentPlayerController"/>
         /// </summary>
@@ -32,6 +41,16 @@ namespace Gang1057.Ludiwuri.Game.Player
         #endregion
 
         #region Methods
+
+        public void OnCollectLamp()
+        {
+            CurrentPlayerController = GetComponent<WithLampPlayerController>();
+
+            // TODO: Update animator
+
+            lampGameobject.SetActive(true);
+        }
+
 
         private void Awake()
         {
