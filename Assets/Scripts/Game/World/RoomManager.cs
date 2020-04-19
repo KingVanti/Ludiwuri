@@ -144,13 +144,9 @@ namespace Gang1057.Ludiwuri.Game.World
 
             else
             {
-                // Get the room asset with requested name
-
-                RoomAsset roomAsset = Resources.Load<RoomAsset>($"Rooms/{roomName}");
-
                 // Load the room
 
-                room = LoadRoomFromAsset(roomAsset);
+                room = LoadRoomFromAsset(roomName);
             }
 
             // Return the room
@@ -163,15 +159,17 @@ namespace Gang1057.Ludiwuri.Game.World
         /// </summary>
         /// <param name="roomAsset">The rooms asset</param>
         /// <returns>The loaded room</returns>
-        private Room LoadRoomFromAsset(RoomAsset roomAsset)
+        private Room LoadRoomFromAsset(string roomName)
         {
             // Instantiate the prefab
 
-            GameObject roomGameObject = Instantiate(roomAsset.RoomPrefab, transform);
+            GameObject roomGameObject = Instantiate(
+                Resources.Load<GameObject>($"Rooms/{roomName}")
+                , transform);
 
             // Create a room
 
-            Room room = new Room(roomAsset.name, roomGameObject);
+            Room room = new Room(roomName, roomGameObject);
 
             // Cache the room
 
