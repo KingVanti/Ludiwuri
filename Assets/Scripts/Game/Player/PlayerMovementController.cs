@@ -75,8 +75,6 @@ namespace Gang1057.Ludiwuri.Game.Player
                 _running = value;
 
                 Speed = value ? runSpeed : walkSpeed;
-
-                // TODO: Update animator
             }
         }
 
@@ -168,7 +166,14 @@ namespace Gang1057.Ludiwuri.Game.Player
 
             // Update animator
 
-            anim.SetFloat("Speed", Speed);
+            if (Input.GetAxis("Horizontal") == 0)
+                anim.SetInteger("MoveState", 0);
+            else if (!Running)
+                anim.SetInteger("MoveState", 1);
+            else
+                anim.SetInteger("MoveState", 2);
+
+
 
             // Clamp player position
 
