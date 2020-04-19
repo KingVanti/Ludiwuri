@@ -17,6 +17,10 @@ namespace Gang1057.Ludiwuri.Game.Player
         /// The max number of health points the lamp can have
         /// </summary>
         [SerializeField] private int maxLampHealth;
+        /// <summary>
+        /// Used to play the match mini-game
+        /// </summary>
+        [SerializeField] private MatchMinigameManager minigameManager;
 
 #pragma warning restore 649
 
@@ -28,6 +32,10 @@ namespace Gang1057.Ludiwuri.Game.Player
         /// Backing field to <see cref="LampHealth"/>
         /// </summary>
         private int _lampHealth;
+        /// <summary>
+        /// Backing field to <see cref="MatchCount"/>
+        /// </summary>
+        private int _matchCount;
 
         #endregion
 
@@ -62,6 +70,15 @@ namespace Gang1057.Ludiwuri.Game.Player
 
                 // TODO: Update UI
             }
+        }
+
+        /// <summary>
+        /// The number of matches the player currently has
+        /// </summary>
+        public int MatchCount
+        {
+            get { return _matchCount; }
+            set { _matchCount = value; }
         }
 
         #endregion
@@ -103,6 +120,16 @@ namespace Gang1057.Ludiwuri.Game.Player
 
             if (guarding != Guarding)
                 Guarding = guarding;
+
+            // If the Reload button is pressed and the player still has matches
+
+            if (Input.GetButtonDown("Reload") && MatchCount > 0)
+            {
+                // Stop the player and start the mini-game
+
+                MovementController.Locked = true;
+                minigameManager.StartMinigame();
+            }
         }
 
         #endregion

@@ -457,6 +457,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f8e55930aae4544382adbb322194b38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiGameObject: {fileID: 0}
 --- !u!1001 &1020805434
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -469,6 +470,11 @@ PrefabInstance:
       propertyPath: candleGameobject
       value: 
       objectReference: {fileID: 1669711327}
+    - target: {fileID: 4233808918294315993, guid: 7ff5a8768b5c08544b220750c240297f,
+        type: 3}
+      propertyPath: minigameManager
+      value: 
+      objectReference: {fileID: 598037020}
     - target: {fileID: 7568852800391853381, guid: 7ff5a8768b5c08544b220750c240297f,
         type: 3}
       propertyPath: m_LocalPosition.x
