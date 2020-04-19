@@ -89,7 +89,6 @@ namespace Gang1057.Ludiwuri.Game.Player
             set
             {
                 _speed = value;
-                anim.SetFloat("Speed", value);
             }
         }
 
@@ -151,6 +150,10 @@ namespace Gang1057.Ludiwuri.Game.Player
                 if (faceingDirection != FaceingDirection)
                     FaceingDirection = faceingDirection;
             }
+
+            // Update animator
+
+            anim.SetFloat("Speed", Speed);
         }
 
         #endregion
