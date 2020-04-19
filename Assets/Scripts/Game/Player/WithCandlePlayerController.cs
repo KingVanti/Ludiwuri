@@ -18,6 +18,10 @@ namespace Gang1057.Ludiwuri.Game.Player
         /// </summary>
         [SerializeField] private int maxLampHealth;
         /// <summary>
+        /// The number of health points a match refills
+        /// </summary>
+        [SerializeField] private int matchRefillValue;
+        /// <summary>
         /// Used to play the match mini-game
         /// </summary>
         [SerializeField] private MatchMinigameManager minigameManager;
@@ -29,9 +33,9 @@ namespace Gang1057.Ludiwuri.Game.Player
         /// </summary>
         private bool _guarding;
         /// <summary>
-        /// Backing field to <see cref="LampHealth"/>
+        /// Backing field to <see cref="CandleHealth"/>
         /// </summary>
-        private int _lampHealth;
+        private int _candleHealth;
         /// <summary>
         /// Backing field to <see cref="MatchCount"/>
         /// </summary>
@@ -59,14 +63,14 @@ namespace Gang1057.Ludiwuri.Game.Player
         }
 
         /// <summary>
-        /// The lamps current health
+        /// The candles current health
         /// </summary>
-        public int LampHealth
+        public int CandleHealth
         {
-            get { return _lampHealth; }
+            get { return _candleHealth; }
             private set
             {
-                _lampHealth = Mathf.Clamp(0, maxLampHealth, value);
+                _candleHealth = Mathf.Clamp(0, maxLampHealth, value);
 
                 // TODO: Update UI
             }
@@ -86,10 +90,10 @@ namespace Gang1057.Ludiwuri.Game.Player
         #region Methods
 
         /// <summary>
-        /// Try to deal lamp damage. Wont work if the player is guarding
+        /// Try to deal candle damage. Wont work if the player is guarding
         /// </summary>
         /// <param name="damage">The number of damage points</param>
-        public void TryDealLampDamage(int damage)
+        public void TryCandleLampDamage(int damage)
         {
             // If the player is not guarding
 
@@ -97,17 +101,31 @@ namespace Gang1057.Ludiwuri.Game.Player
 
                 // Deal damage
 
-                DealLampDamage(damage);
+                DealCandleDamage(damage);
+        }
+
+        /// <summary>
+        /// Called when the match mini-game is completed
+        /// </summary>
+        public void OnMatchMinigameComplete()
+        {
+            // Remove a match
+
+            MatchCount--;
+
+            // Refill the candles health
+
+            CandleHealth += matchRefillValue;
         }
 
 
         /// <summary>
-        /// Deals damage to the lamp
+        /// Deals damage to the candle
         /// </summary>
         /// <param name="damage">The number of damage points</param>
-        private void DealLampDamage(int damage)
+        private void DealCandleDamage(int damage)
         {
-            LampHealth -= damage;
+            CandleHealth -= damage;
 
             // TODO: Kill player if no health is left
         }

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
@@ -13,9 +14,20 @@ namespace Gang1057.Ludiwuri.Game.UI
 
         #region Fields
 
+        /// <summary>
+        /// Called when a strike occurs
+        /// </summary>
+        public UnityEvent onStrike;
+
 #pragma warning disable 649
 
+        /// <summary>
+        /// The minimum distance the cursor needs to move in order to count towards a strike
+        /// </summary>
         [SerializeField] private float minSliderDelta;
+        /// <summary>
+        /// The distance the cursor needs to move to register a strike
+        /// </summary>
         [SerializeField] private float strikeDistance;
         /// <summary>
         /// The slider used to update the value
@@ -32,6 +44,9 @@ namespace Gang1057.Ludiwuri.Game.UI
         /// The previous value
         /// </summary>
         private float prevValue;
+        /// <summary>
+        /// The previous distance
+        /// </summary>
         private float prevDistance;
 
         #endregion
@@ -77,7 +92,7 @@ namespace Gang1057.Ludiwuri.Game.UI
 
             else if (distance >= strikeDistance)
             {
-                // TODO: Trigger strike
+                onStrike.Invoke();
             }
 
             // If the cursor moved correctly, but not enough for a strike

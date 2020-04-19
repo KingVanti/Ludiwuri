@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
 namespace Gang1057.Ludiwuri.Game
 {
@@ -12,9 +13,18 @@ namespace Gang1057.Ludiwuri.Game
         #region Fields
 
         /// <summary>
+        /// Called when the mini-game was completed
+        /// </summary>
+        public UnityEvent onMinigameComplete;
+
+#pragma warning disable 649
+
+        /// <summary>
         /// The game-object
         /// </summary>
         [SerializeField] private GameObject uiGameObject;
+
+#pragma warning restore 649
 
         #endregion
 
@@ -34,6 +44,8 @@ namespace Gang1057.Ludiwuri.Game
         public void OnCompleteMinigame()
         {
             uiGameObject.SetActive(false);
+
+            onMinigameComplete.Invoke();
         }
 
         #endregion
