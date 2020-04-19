@@ -121,5 +121,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 290d2ef6fd196c548a5d0fb008ac3108, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnOffet: {x: 0, y: -1}
+  spawnOffet: {x: 0, y: 0}
   _connectedRoomName: 
