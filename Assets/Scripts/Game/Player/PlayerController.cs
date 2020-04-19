@@ -54,7 +54,7 @@ namespace Gang1057.Ludiwuri.Game.Player
         /// <summary>
         /// Backing field to <see cref="MatchCount"/>
         /// </summary>
-        private int _matchCount;
+        private int _matchCount =  5;
         private bool _inLight;
 
         #endregion
@@ -175,6 +175,12 @@ namespace Gang1057.Ludiwuri.Game.Player
                 // Interact with it
 
                 CurrentInteractable.Interact();
+
+            // If the player pressed the reload button, his light is not burning and he has matches
+
+            if (Input.GetButtonDown("Reload") && !CandleLit && MatchCount > 0)
+
+                minigameManager.StartMinigame();
 
             // Update InLight property
 

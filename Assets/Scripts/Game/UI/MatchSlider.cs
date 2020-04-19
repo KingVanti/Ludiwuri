@@ -9,7 +9,7 @@ namespace Gang1057.Ludiwuri.Game.UI
     /// <summary>
     /// Used to detect the players sliding action
     /// </summary>
-    public class MatchSlider : MonoBehaviour, IPointerDownHandler
+    public class MatchSlider : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler
     {
 
         #region Fields
@@ -24,26 +24,23 @@ namespace Gang1057.Ludiwuri.Game.UI
         /// <summary>
         /// The minimum distance the cursor needs to move in order to count towards a strike
         /// </summary>
-        [SerializeField] private float minSliderDelta;
+        [SerializeField] private float minMoveDelta;
         /// <summary>
         /// The distance the cursor needs to move to register a strike
         /// </summary>
         [SerializeField] private float strikeDistance;
-        /// <summary>
-        /// The slider used to update the value
-        /// </summary>
-        [SerializeField] private Slider slider;
 
 #pragma warning restore 649
 
+        private bool onMatchBox;
         /// <summary>
         /// The value the slider started at
         /// </summary>
-        private float startValue = 0;
+        private Vector2 startPosition;
         /// <summary>
         /// The previous value
         /// </summary>
-        private float prevValue;
+        private Vector2 prevValue;
         /// <summary>
         /// The previous distance
         /// </summary>
@@ -58,25 +55,36 @@ namespace Gang1057.Ludiwuri.Game.UI
         /// </summary>
         public void OnPointerDown(PointerEventData eventData)
         {
-            StartAtCurrentValue();
+            if (onMatchBox)
+                StartAtCurrentPosition();
+        }
+
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            onMatchBox = true;
+        }
+
+        public void OnPointerExit(PointerEventData eventData)
+        {
+            onMatchBox = false;
         }
 
         /// <summary>
         /// Called when the sliders value changes
         /// </summary>
-        /// <param name="value">The sliders new value</param>
-        public void OnSliderValueChanged(float value)
+        /// <param name="mousePos">The sliders new value</param>
+        private void OnMousePosChanged(Vector2 mousePos)
         {
-            float delta = Mathf.Abs(value - prevValue);
-            float distance = Mathf.Abs(value - startValue);
+            float delta = Vector2.Distance(mousePos, prevValue);
+            float distance = Vector2.Distance(mousePos, startPosition);
 
             // If the cursor moved too little
 
-            if (delta < minSliderDelta)
+            if (delta < minMoveDelta)
             {
                 // Start again
 
-                StartAtCurrentValue();
+                StartAtCurrentPosition();
             }
 
             // If the cursor moved in the wrong direction
@@ -85,7 +93,7 @@ namespace Gang1057.Ludiwuri.Game.UI
             {
                 // Start again
 
-                StartAtCurrentValue();
+                StartAtCurrentPosition();
             }
 
             // If the cursor moved enough for a strike
@@ -99,16 +107,22 @@ namespace Gang1057.Ludiwuri.Game.UI
 
             else
             {
-                prevValue = value;
+                prevValue = mousePos;
                 prevDistance = distance;
             }
         }
 
 
-        private void StartAtCurrentValue()
+        private void Update()
         {
-            startValue = slider.value;
-            prevValue = startValue;
+            if (onMatchBox && Input.GetMouseButton(0))
+                OnMousePosChanged(Input.mousePosition);
+        }
+
+        private void StartAtCurrentPosition()
+        {
+            startPosition = Input.mousePosition;
+            prevValue = startPosition;
             prevDistance = 0;
         }
 

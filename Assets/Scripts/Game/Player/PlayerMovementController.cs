@@ -180,8 +180,6 @@ namespace Gang1057.Ludiwuri.Game.Player
             else
                 anim.SetInteger("MoveState", 2);
 
-
-
             // Clamp player position
 
             transform.position = new Vector3(
