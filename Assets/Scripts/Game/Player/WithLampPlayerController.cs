@@ -11,10 +11,23 @@ namespace Gang1057.Ludiwuri.Game.Player
 
         #region Fields
 
+#pragma warning disable 649
+
+        /// <summary>
+        /// The max number of health points the lamp can have
+        /// </summary>
+        [SerializeField] private int maxLampHealth;
+
+#pragma warning restore 649
+
         /// <summary>
         /// Backing field to <see cref="Guarding"/>
         /// </summary>
         private bool _guarding;
+        /// <summary>
+        /// Backing field to <see cref="LampHealth"/>
+        /// </summary>
+        private int _lampHealth;
 
         #endregion
 
@@ -37,8 +50,21 @@ namespace Gang1057.Ludiwuri.Game.Player
             }
         }
 
-        #endregion
+        /// <summary>
+        /// The lamps current health
+        /// </summary>
+        public int LampHealth
+        {
+            get { return _lampHealth; }
+            private set
+            {
+                _lampHealth = Mathf.Clamp(0, maxLampHealth, value);
 
+                // TODO: Update UI
+            }
+        }
+
+        #endregion
 
         #region Methods
 
