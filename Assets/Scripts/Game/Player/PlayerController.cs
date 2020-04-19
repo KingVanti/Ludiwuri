@@ -40,6 +40,7 @@ namespace Gang1057.Ludiwuri.Game.Player
         [SerializeField] private MatchMinigameManager minigameManager;
         [SerializeField] private TextMeshProUGUI matchCountText;
         [SerializeField] private DeathCountdownText deathCountdownText;
+        [SerializeField] private GameObject candleGameObject;
 
 #pragma warning restore 649
 
@@ -54,7 +55,7 @@ namespace Gang1057.Ludiwuri.Game.Player
         /// <summary>
         /// Backing field to <see cref="MatchCount"/>
         /// </summary>
-        private int _matchCount =  5;
+        private int _matchCount = 5;
         private bool _inLight;
 
         #endregion
@@ -105,6 +106,7 @@ namespace Gang1057.Ludiwuri.Game.Player
                 _candleLit = value;
 
                 anim.SetBool("CandleLit", value);
+                candleGameObject.SetActive(value);
             }
         }
 
