@@ -33,6 +33,9 @@ namespace Gang1057.Ludiwuri.Game.World
             set { _connectedRoomName = value; }
         }
 
+        /// <inheritdoc/>
+        public bool Interactable { get { return true; } }
+
         #endregion
 
         #region Methods
