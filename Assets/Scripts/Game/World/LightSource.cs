@@ -4,7 +4,7 @@ using UnityEngine.Experimental.Rendering.Universal;
 namespace Gang1057.Ludiwuri.Game.World
 {
 
-    public abstract class LightSource : MonoBehaviour
+    public class LightSource : MonoBehaviour
     {
 
         #region Fields
