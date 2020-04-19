@@ -135,10 +135,10 @@ namespace Gang1057.Ludiwuri.Game.Player
         /// <param name="collider">The collider that exited</param>
         private void OnTriggerExit2D(Collider2D collider)
         {
-            // If the object is an interactable
+            // If the object is the current interactable
 
             IInteractable interactable = collider.GetComponent<IInteractable>();
-            if (interactable != null)
+            if (interactable == CurrentInteractable)
             {
                 // Clear the current interactable
 
