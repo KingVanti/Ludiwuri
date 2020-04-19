@@ -55,8 +55,8 @@ namespace Gang1057.Ludiwuri.Game.Player
         /// <summary>
         /// Backing field to <see cref="MatchCount"/>
         /// </summary>
-        private int _matchCount = 5;
-        private bool _inLight;
+        private int _matchCount;
+        private bool _inLight = true;
 
         #endregion
 
@@ -164,6 +164,9 @@ namespace Gang1057.Ludiwuri.Game.Player
         private void Awake()
         {
             Instance = this;
+
+            MatchCount = 5;
+            deathCountdownText.SetCountdownTime(null);
         }
 
         /// <summary>
