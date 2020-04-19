@@ -140,7 +140,7 @@ GameObject:
   - component: {fileID: 4885911242150460150}
   m_Layer: 0
   m_Name: BackWall
-  m_TagString: Untagged
+  m_TagString: BackWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

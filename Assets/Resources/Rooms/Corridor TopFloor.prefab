@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 4885911242150460150}
   m_Layer: 0
   m_Name: BackWall
-  m_TagString: Untagged
+  m_TagString: BackWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -189,9 +189,7 @@ MonoBehaviour:
   onEnter:
     m_PersistentCalls:
       m_Calls: []
-  onExit:
-    m_PersistentCalls:
-      m_Calls: []
+  once: 1
 --- !u!1 &6297537488812295561
 GameObject:
   m_ObjectHideFlags: 0
@@ -381,7 +379,7 @@ MonoBehaviour:
   - {x: -0.7587454, y: 0.51124305, z: 0}
   m_ShapePathHash: 1162647544
   m_Mesh: {fileID: 0}
-  m_InstanceId: 26360
+  m_InstanceId: 27340
 --- !u!1001 &4563082549857855998
 PrefabInstance:
   m_ObjectHideFlags: 0
