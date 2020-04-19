@@ -68,6 +68,33 @@ namespace Gang1057.Ludiwuri.Game.Player
 
         #region Methods
 
+        /// <summary>
+        /// Try to deal lamp damage. Wont work if the player is guarding
+        /// </summary>
+        /// <param name="damage">The number of damage points</param>
+        public void TryDealLampDamage(int damage)
+        {
+            // If the player is not guarding
+
+            if (!Guarding)
+
+                // Deal damage
+
+                DealLampDamage(damage);
+        }
+
+
+        /// <summary>
+        /// Deals damage to the lamp
+        /// </summary>
+        /// <param name="damage">The number of damage points</param>
+        private void DealLampDamage(int damage)
+        {
+            LampHealth -= damage;
+
+            // TODO: Kill player if no health is left
+        }
+
         private void Update()
         {
             // Update "Guarding" property
