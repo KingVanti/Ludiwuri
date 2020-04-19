@@ -27,10 +27,6 @@ namespace Gang1057.Ludiwuri.Game.Player
         /// </summary>
         [SerializeField] private Rigidbody2D rb;
         /// <summary>
-        /// The renderer used to show the player
-        /// </summary>
-        [SerializeField] private SpriteRenderer sr;
-        /// <summary>
         /// Used to animate the player
         /// </summary>
         [SerializeField] private Animator anim;
@@ -112,7 +108,7 @@ namespace Gang1057.Ludiwuri.Game.Player
             {
                 _faceingDirection = value;
 
-                sr.flipX = value == Directions.Left;
+                transform.localScale = new Vector3(value == Directions.Left ? -1 : 1, 1, 1);
             }
         }
 
