@@ -47,7 +47,6 @@ namespace Gang1057.Ludiwuri.Game.Player
         /// <summary>
         /// Backing field to <see cref="CurrentInteractable"/>
         /// </summary>
-        private IInteractable _currentInteractable;
         /// <summary>
         /// Backing field to <see cref="CandleLit"/>
         /// </summary>
@@ -74,16 +73,7 @@ namespace Gang1057.Ludiwuri.Game.Player
         /// <summary>
         /// The interactable the player currently stands in front of. Null if there is none
         /// </summary>
-        public IInteractable CurrentInteractable
-        {
-            get { return _currentInteractable; }
-            set
-            {
-                _currentInteractable = value;
-
-                // TODO: Trigger event (Update UI)
-            }
-        }
+        public IInteractable CurrentInteractable { get; set; }
 
         /// <summary>
         /// The number of matches the player currently has
