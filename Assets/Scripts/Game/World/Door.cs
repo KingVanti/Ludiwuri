@@ -14,10 +14,6 @@ namespace Gang1057.Ludiwuri.Game.World
 #pragma warning disable 649
 
         /// <summary>
-        /// Backing field to <see cref="Locked"/>
-        /// </summary>
-        [SerializeField] private bool _locked;
-        /// <summary>
         /// Backing field to <see cref="ConnectedRoomName"/>
         /// </summary>
         [SerializeField] private string _connectedRoomName;
@@ -27,15 +23,6 @@ namespace Gang1057.Ludiwuri.Game.World
         #endregion
 
         #region Properties
-
-        /// <summary>
-        /// Indicates whether the door is unlocked
-        /// </summary>
-        public bool Locked
-        {
-            get { return _locked; }
-            private set { _locked = value; }
-        }
 
         /// <summary>
         /// The name of the room this door connects to
