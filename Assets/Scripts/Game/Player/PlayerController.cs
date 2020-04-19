@@ -7,7 +7,7 @@ namespace Gang1057.Ludiwuri.Game.Player
     /// <summary>
     /// Base class for all player controllers
     /// </summary>
-    public abstract class PlayerController : MonoBehaviour
+    public class PlayerController : MonoBehaviour
     {
 
         #region Fields
@@ -18,6 +18,10 @@ namespace Gang1057.Ludiwuri.Game.Player
         /// Backing field to <see cref="MovementController"/>
         /// </summary>
         [SerializeField] private PlayerMovementController _movementController;
+        /// <summary>
+        /// Used to play the match mini-game
+        /// </summary>
+        [SerializeField] private MatchMinigameManager minigameManager;
 
 #pragma warning restore 649
 
@@ -25,6 +29,10 @@ namespace Gang1057.Ludiwuri.Game.Player
         /// Backing field to <see cref="CurrentInteractable"/>
         /// </summary>
         private IInteractable _currentInteractable;
+        /// <summary>
+        /// Backing field to <see cref="MatchCount"/>
+        /// </summary>
+        private int _matchCount;
 
         #endregion
 
@@ -55,6 +63,19 @@ namespace Gang1057.Ludiwuri.Game.Player
 
         #endregion
 
+        #region Properties
+
+        /// <summary>
+        /// The number of matches the player currently has
+        /// </summary>
+        public int MatchCount
+        {
+            get { return _matchCount; }
+            set { _matchCount = value; }
+        }
+
+        #endregion
+
         #region Methods
 
         /// <summary>
@@ -64,6 +85,16 @@ namespace Gang1057.Ludiwuri.Game.Player
         public void TeleportTo(Vector2 position)
         {
             transform.position = position;
+        }
+
+        /// <summary>
+        /// Called when the match mini-game is completed
+        /// </summary>
+        public void OnMatchMinigameComplete()
+        {
+            // Remove a match
+
+            MatchCount--;
         }
 
 

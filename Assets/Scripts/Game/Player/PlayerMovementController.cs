@@ -98,7 +98,7 @@ namespace Gang1057.Ludiwuri.Game.Player
         }
 
         /// <summary>
-        /// The direction in whcih the player is currently facing
+        /// The direction in which the player is currently facing
         /// </summary>
         private Directions FaceingDirection
         {
