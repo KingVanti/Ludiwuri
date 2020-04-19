@@ -12,7 +12,7 @@
         /// <summary>
         /// Indicates whether this intractable is currently interactable
         /// </summary>
-        public bool Interactable { get; }
+        bool Interactable { get; }
 
         #endregion
 
