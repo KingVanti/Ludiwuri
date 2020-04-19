@@ -80,7 +80,7 @@ namespace Gang1057.Ludiwuri.Game.Player
                     Speed = value ? runSpeed : walkSpeed;
 
                     if (value)
-                        controller.CandleLit = false;
+                        controller.candle.PutOut();
                 }
             }
         }

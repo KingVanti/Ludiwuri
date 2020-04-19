@@ -23,6 +23,8 @@ namespace Gang1057.Ludiwuri.Game.Player
 
         #region Fields
 
+        public Candle candle;
+
 #pragma warning disable 649
 
         [SerializeField] private int secondsUntilDeath;
@@ -40,22 +42,15 @@ namespace Gang1057.Ludiwuri.Game.Player
         [SerializeField] private MatchMinigameManager minigameManager;
         [SerializeField] private TextMeshProUGUI matchCountText;
         [SerializeField] private DeathCountdownText deathCountdownText;
-        [SerializeField] private GameObject candleGameObject;
 
 #pragma warning restore 649
 
-        /// <summary>
-        /// Backing field to <see cref="CurrentInteractable"/>
-        /// </summary>
-        /// <summary>
-        /// Backing field to <see cref="CandleLit"/>
-        /// </summary>
-        private bool _candleLit;
         /// <summary>
         /// Backing field to <see cref="MatchCount"/>
         /// </summary>
         private int _matchCount;
         private bool _inLight = true;
+        private Coroutine countDownRoutine;
 
         #endregion
 
@@ -88,18 +83,6 @@ namespace Gang1057.Ludiwuri.Game.Player
             }
         }
 
-        public bool CandleLit
-        {
-            get { return _candleLit; }
-            set
-            {
-                _candleLit = value;
-
-                anim.SetBool("CandleLit", value);
-                candleGameObject.SetActive(value);
-            }
-        }
-
         public bool InLight
         {
             get
@@ -113,15 +96,7 @@ namespace Gang1057.Ludiwuri.Game.Player
                 {
                     _inLight = value;
 
-                    if (!value)
-                    {
-                        StartCoroutine(CountDownToDeath());
-                    }
-                    else
-                    {
-                        StopAllCoroutines();
-                        deathCountdownText.SetCountdownTime(null);
-                    }
+                    RefreshDeathCountdownCondition();
                 }
             }
         }
@@ -147,7 +122,23 @@ namespace Gang1057.Ludiwuri.Game.Player
             // Remove a match
 
             MatchCount--;
-            CandleLit = true;
+
+            candle.Light();
+        }
+
+        public void RefreshDeathCountdownCondition()
+        {
+            bool countdown = !InLight && !candle.Lit;
+
+            if (countdown)
+            {
+                countDownRoutine = StartCoroutine(CountDownToDeath());
+            }
+            else
+            {
+                StopCoroutine(countDownRoutine);
+                deathCountdownText.SetCountdownTime(null);
+            }
         }
 
 
@@ -174,7 +165,7 @@ namespace Gang1057.Ludiwuri.Game.Player
 
             // If the player pressed the reload button, his light is not burning and he has matches
 
-            if (Input.GetButtonDown("Reload") && !CandleLit && MatchCount > 0)
+            if (Input.GetButtonDown("Reload") && !candle.Lit && MatchCount > 0)
 
                 minigameManager.StartMinigame();
 

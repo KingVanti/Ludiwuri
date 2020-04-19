@@ -12,7 +12,7 @@ namespace Gang1057.Ludiwuri.Game.World
         #region Properties
 
         /// <inheritdoc/>
-        public bool Interactable { get { return !Lit && PlayerController.Instance.CandleLit; } }
+        public bool Interactable { get { return !Lit && PlayerController.Instance.candle.Lit; } }
 
         #endregion
 
