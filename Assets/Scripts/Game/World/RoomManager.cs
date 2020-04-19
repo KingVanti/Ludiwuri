@@ -1,6 +1,7 @@
 ﻿using Gang1057.Ludiwuri.Game.Player;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Gang1057.Ludiwuri.Game.World
 {
@@ -12,6 +13,11 @@ namespace Gang1057.Ludiwuri.Game.World
     {
 
         #region Fields
+
+        /// <summary>
+        /// Called when a room is entered
+        /// </summary>
+        public RoomEvent onRoomEntered;
 
 #pragma warning disable 649
 
@@ -93,6 +99,10 @@ namespace Gang1057.Ludiwuri.Game.World
             // Set the room to be the current one
 
             currentRoom = room;
+
+            // Fire enter event
+
+            onRoomEntered.Invoke(room);
         }
 
         /// <summary>
@@ -188,6 +198,16 @@ namespace Gang1057.Ludiwuri.Game.World
 
             EnterInitialRoom();
         }
+
+        #endregion
+
+        #region SubClasses
+
+        /// <summary>
+        /// Event with <see cref="Room"/> parameter
+        /// </summary>
+        [System.Serializable]
+        public class RoomEvent : UnityEvent<Room> { }
 
         #endregion
 
