@@ -34,6 +34,7 @@ namespace Gang1057.Ludiwuri.Game.Player
         /// Used to animate the player
         /// </summary>
         [SerializeField] private Animator anim;
+        [SerializeField] private PlayerController controller;
 
 #pragma warning restore 649
 
@@ -72,9 +73,15 @@ namespace Gang1057.Ludiwuri.Game.Player
             get { return _running; }
             set
             {
-                _running = value;
+                if (value != _running)
+                {
+                    _running = value;
 
-                Speed = value ? runSpeed : walkSpeed;
+                    Speed = value ? runSpeed : walkSpeed;
+
+                    if (value)
+                        controller.CandleLit = false;
+                }
             }
         }
 
