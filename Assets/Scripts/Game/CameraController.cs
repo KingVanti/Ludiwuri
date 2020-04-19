@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Gang1057.Ludiwuri.Game.World;
+using UnityEngine;
 
 namespace Gang1057.Ludiwuri.Game
 {
@@ -31,6 +32,18 @@ namespace Gang1057.Ludiwuri.Game
         #endregion
 
         #region Methods
+
+        /// <summary>
+        /// Called when the room changes
+        /// </summary>
+        /// <param name="room">The room that was entered</param>
+        public void OnChangeRoom(Room room)
+        {
+            // Teleport camera to player
+
+            transform.position = playerTransform.position + cameraOffset;
+        }
+
 
         private void FixedUpdate()
         {
