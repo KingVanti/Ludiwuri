@@ -117,9 +117,9 @@ namespace Gang1057.Ludiwuri.Game.Player
         /// </summary>
         private void Update()
         {
-            // If the player presses "Interact" and is standing in front of something to interact with
+            // If the player presses "Interact" and is standing in front of something to interact with that is interactable
 
-            if (Input.GetButtonDown("Interact") && CurrentInteractable != null)
+            if (Input.GetButtonDown("Interact") && CurrentInteractable != null && CurrentInteractable.Interactable)
 
                 // Interact with it
 
