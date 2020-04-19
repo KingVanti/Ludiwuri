@@ -9,6 +9,13 @@ namespace Gang1057.Ludiwuri.Game.World.Collectibles
     public abstract class Collectible : MonoBehaviour, IInteractable
     {
 
+        #region Properties
+
+        /// <inheritdoc/>
+        public bool Interactable { get { return true; } }
+
+        #endregion
+
         #region Methods
 
         /// <inheritdoc/>
