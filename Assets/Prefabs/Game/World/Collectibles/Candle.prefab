@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1074320122086185844}
   - component: {fileID: 1074320122086185847}
   - component: {fileID: 1074320122086185842}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Candle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7542393321848064606}
   - component: {fileID: 3619287912615920950}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -161,7 +161,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5423761786576258378}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
   m_Name: 
