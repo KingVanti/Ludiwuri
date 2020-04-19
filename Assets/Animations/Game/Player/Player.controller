@@ -40,9 +40,6 @@ AnimatorStateTransition:
   - m_ConditionMode: 2
     m_ConditionEvent: CandleLit
     m_EventTreshold: 0
-  - m_ConditionMode: 6
-    m_ConditionEvent: MoveState
-    m_EventTreshold: 1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1048796083897984513}
   m_Solo: 0
@@ -96,9 +93,6 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: CandleLit
     m_EventTreshold: 0
-  - m_ConditionMode: 6
-    m_ConditionEvent: MoveState
-    m_EventTreshold: 1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 4004982956588997078}
   m_Solo: 0
@@ -146,9 +140,6 @@ AnimatorStateTransition:
   - m_ConditionMode: 2
     m_ConditionEvent: CandleLit
     m_EventTreshold: 0
-  - m_ConditionMode: 6
-    m_ConditionEvent: MoveState
-    m_EventTreshold: 2
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1228719546147570702}
   m_Solo: 0
@@ -342,9 +333,6 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 1
     m_ConditionEvent: CandleLit
-    m_EventTreshold: 0
-  - m_ConditionMode: 6
-    m_ConditionEvent: MoveState
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 2876382238119472358}
@@ -585,9 +573,6 @@ AnimatorStateTransition:
   - m_ConditionMode: 2
     m_ConditionEvent: CandleLit
     m_EventTreshold: 0
-  - m_ConditionMode: 6
-    m_ConditionEvent: MoveState
-    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -7135641722257660073}
   m_Solo: 0
@@ -795,9 +780,6 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: CandleLit
     m_EventTreshold: 0
-  - m_ConditionMode: 6
-    m_ConditionEvent: MoveState
-    m_EventTreshold: 2
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -4077211494605525927}
   m_Solo: 0
