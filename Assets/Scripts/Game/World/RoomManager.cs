@@ -69,6 +69,11 @@ namespace Gang1057.Ludiwuri.Game.World
             EnterRoom(room);
         }
 
+        public bool PlayerInLight (Vector2 position)
+        {
+            return currentRoom.PlayerInLight(position);
+        }
+
 
         /// <summary>
         /// Enters the given room

@@ -17,11 +17,13 @@ namespace Gang1057.Ludiwuri.Game.World
         #endregion
 
         #region Properties
+
         /// <summary>
         /// Indicates whether the source is currently lit
         /// </summary>
         public bool Lit { get; protected set; } = true;
 
+        public float Radius { get { return lightSource.pointLightOuterRadius * 0.75f; } }
 
         #endregion
 

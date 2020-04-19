@@ -1,4 +1,5 @@
 ﻿using Gang1057.Ludiwuri.Game.World;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 
@@ -24,6 +25,7 @@ namespace Gang1057.Ludiwuri.Game.Player
 
 #pragma warning disable 649
 
+        [SerializeField] private int secondsUntilDeath;
         /// <summary>
         /// The players animator
         /// </summary>
@@ -37,6 +39,7 @@ namespace Gang1057.Ludiwuri.Game.Player
         /// </summary>
         [SerializeField] private MatchMinigameManager minigameManager;
         [SerializeField] private TextMeshProUGUI matchCountText;
+        [SerializeField] private DeathCountdownText deathCountdownText;
 
 #pragma warning restore 649
 
@@ -52,6 +55,7 @@ namespace Gang1057.Ludiwuri.Game.Player
         /// Backing field to <see cref="MatchCount"/>
         /// </summary>
         private int _matchCount;
+        private bool _inLight;
 
         #endregion
 
@@ -104,6 +108,32 @@ namespace Gang1057.Ludiwuri.Game.Player
             }
         }
 
+        public bool InLight
+        {
+            get
+            {
+                return _inLight;
+            }
+
+            private set
+            {
+                if (value != _inLight)
+                {
+                    _inLight = value;
+
+                    if (!value)
+                    {
+                        StartCoroutine(CountDownToDeath());
+                    }
+                    else
+                    {
+                        StopAllCoroutines();
+                        deathCountdownText.SetCountdownTime(null);
+                    }
+                }
+            }
+        }
+
         #endregion
 
         #region Methods
@@ -145,6 +175,10 @@ namespace Gang1057.Ludiwuri.Game.Player
                 // Interact with it
 
                 CurrentInteractable.Interact();
+
+            // Update InLight property
+
+            InLight = RoomManager.Instance.PlayerInLight(transform.position);
         }
 
         /// <summary>
@@ -179,6 +213,20 @@ namespace Gang1057.Ludiwuri.Game.Player
 
                 CurrentInteractable = null;
             }
+        }
+
+        private IEnumerator CountDownToDeath()
+        {
+            int countDownTime = secondsUntilDeath;
+
+            while (countDownTime > 0)
+            {
+                deathCountdownText.SetCountdownTime(countDownTime);
+                yield return new WaitForSeconds(1);
+                countDownTime--;
+            }
+
+            // TODO: Trigger death
         }
 
         #endregion

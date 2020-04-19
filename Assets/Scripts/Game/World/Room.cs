@@ -25,6 +25,7 @@ namespace Gang1057.Ludiwuri.Game.World
         /// The spawn-points the player can spawn at in this room
         /// </summary>
         private Dictionary<string, SpawnPoint> spawnPoints = new Dictionary<string, SpawnPoint>();
+        private LightSource[] lightSources;
 
         #endregion
 
@@ -61,6 +62,8 @@ namespace Gang1057.Ludiwuri.Game.World
                     RoomWidth = transform.GetComponent<SpriteRenderer>().size.x;
                     break;
                 }
+
+            lightSources = roomGameObject.GetComponentsInChildren<LightSource>();
         }
 
         #endregion
@@ -81,6 +84,11 @@ namespace Gang1057.Ludiwuri.Game.World
         public void OnExit()
         {
             roomGameObject.SetActive(false);
+        }
+
+        public bool PlayerInLight(Vector2 position)
+        {
+            return lightSources.Any(l => Vector2.Distance(position, l.transform.position) < l.Radius);
         }
 
         /// <summary>
