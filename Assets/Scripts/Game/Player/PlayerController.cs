@@ -24,6 +24,10 @@ namespace Gang1057.Ludiwuri.Game.Player
 #pragma warning disable 649
 
         /// <summary>
+        /// The players animator
+        /// </summary>
+        [SerializeField] private Animator anim;
+        /// <summary>
         /// Backing field to <see cref="MovementController"/>
         /// </summary>
         [SerializeField] private PlayerMovementController _movementController;
@@ -38,6 +42,10 @@ namespace Gang1057.Ludiwuri.Game.Player
         /// Backing field to <see cref="CurrentInteractable"/>
         /// </summary>
         private IInteractable _currentInteractable;
+        /// <summary>
+        /// Backing field to <see cref="CandleLit"/>
+        /// </summary>
+        private bool _candleLit;
         /// <summary>
         /// Backing field to <see cref="MatchCount"/>
         /// </summary>
@@ -70,10 +78,6 @@ namespace Gang1057.Ludiwuri.Game.Player
             }
         }
 
-        #endregion
-
-        #region Properties
-
         /// <summary>
         /// The number of matches the player currently has
         /// </summary>
@@ -81,6 +85,17 @@ namespace Gang1057.Ludiwuri.Game.Player
         {
             get { return _matchCount; }
             set { _matchCount = value; }
+        }
+
+        public bool CandleLit
+        {
+            get { return _candleLit; }
+            set
+            {
+                _candleLit = value;
+
+                anim.SetBool("CandleLit", value);
+            }
         }
 
         #endregion

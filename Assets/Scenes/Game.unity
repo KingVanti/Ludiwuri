@@ -973,6 +973,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f15ce20a992b1984cbfbda1e5b0d5c7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 2751987607171152988}
   _movementController: {fileID: 4974172010736190011}
   minigameManager: {fileID: 598037020}
 --- !u!4 &3631631671838468824
