@@ -51,6 +51,7 @@ namespace Gang1057.Ludiwuri.Game.Player
         /// </summary>
         private int _matchCount;
         private bool _inLight = true;
+        private bool currentCountDownCondition;
         private Coroutine countDownRoutine;
         private IInteractable _currentInteractable;
 
@@ -143,14 +144,19 @@ namespace Gang1057.Ludiwuri.Game.Player
         {
             bool countdown = !InLight && !candle.Lit;
 
-            if (countdown)
+            if (countdown != currentCountDownCondition)
             {
-                countDownRoutine = StartCoroutine(CountDownToDeath());
-            }
-            else
-            {
-                StopCoroutine(countDownRoutine);
-                deathCountdownText.SetCountdownTime(null);
+                if (countdown)
+                {
+                    currentCountDownCondition = true;
+                    countDownRoutine = StartCoroutine(CountDownToDeath());
+                }
+                else
+                {
+                    currentCountDownCondition = false;
+                    StopCoroutine(countDownRoutine);
+                    deathCountdownText.SetCountdownTime(null);
+                }
             }
         }
 

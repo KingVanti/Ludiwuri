@@ -88,7 +88,7 @@ namespace Gang1057.Ludiwuri.Game.World
 
         public bool PlayerInLight(Vector2 position)
         {
-            return lightSources.Any(l => Vector2.Distance(position, l.transform.position) < l.Radius);
+            return lightSources.Any(l => l.Lit && Vector2.Distance(position, l.transform.position) < l.Radius);
         }
 
         /// <summary>
