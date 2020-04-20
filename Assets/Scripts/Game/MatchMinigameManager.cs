@@ -23,6 +23,7 @@ namespace Gang1057.Ludiwuri.Game
         /// The game-object
         /// </summary>
         [SerializeField] private GameObject uiGameObject;
+        [SerializeField] private Texture2D cursorTexture;
 
 #pragma warning restore 649
 
@@ -36,6 +37,7 @@ namespace Gang1057.Ludiwuri.Game
         public void StartMinigame()
         {
             uiGameObject.SetActive(true);
+            Cursor.SetCursor(cursorTexture, new Vector2(0, 0), CursorMode.Auto);
         }
 
         /// <summary>
@@ -44,7 +46,7 @@ namespace Gang1057.Ludiwuri.Game
         public void OnCompleteMinigame()
         {
             uiGameObject.SetActive(false);
-
+            Cursor.SetCursor(null, new Vector2(0, 0), CursorMode.Auto);
             onMinigameComplete.Invoke();
         }
 
