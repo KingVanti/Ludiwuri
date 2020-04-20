@@ -1,5 +1,8 @@
 ﻿using Gang1057.Ludiwuri.Game.Player;
+using Gang1057.Ludiwuri.Game.World.Collectibles;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -25,6 +28,7 @@ namespace Gang1057.Ludiwuri.Game.World
         /// The initial rooms name
         /// </summary>
         [SerializeField] private string initialRoomName;
+
         /// <summary>
         /// The player
         /// </summary>
@@ -67,6 +71,15 @@ namespace Gang1057.Ludiwuri.Game.World
             // Enter the room
 
             EnterRoom(room);
+        }
+
+        public void Relocate(MatchBox matchBox)
+        {
+            IEnumerable<Room> possibleRooms = rooms.Values.Where(r => r != currentRoom && r.FreeMatchSpawnPoint);
+
+            Room nextLocation = possibleRooms.ElementAt(UnityEngine.Random.Range(0, possibleRooms.Count()));
+
+            nextLocation.Place(matchBox);
         }
 
         public bool PlayerInLight(Vector2 position)

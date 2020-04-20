@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using Gang1057.Ludiwuri.Game.World.Collectibles;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -26,10 +28,13 @@ namespace Gang1057.Ludiwuri.Game.World
         /// </summary>
         private Dictionary<string, SpawnPoint> spawnPoints = new Dictionary<string, SpawnPoint>();
         private LightSource[] lightSources;
+        private MatchSpawnPoint[] matchSpawnPoints;
 
         #endregion
 
         #region Properties
+
+        public bool FreeMatchSpawnPoint { get { return matchSpawnPoints.Any(m => m.MatchBox == null); } }
 
         /// <summary>
         /// The rooms name
@@ -50,8 +55,6 @@ namespace Gang1057.Ludiwuri.Game.World
             Name = name;
             this.roomGameObject = roomGameObject;
 
-            doors = roomGameObject.GetComponentsInChildren<Door>();
-
             foreach (SpawnPoint spawnPoint in roomGameObject.GetComponentsInChildren<SpawnPoint>())
                 spawnPoints.Add(spawnPoint.gameObject.name, spawnPoint);
 
@@ -63,7 +66,9 @@ namespace Gang1057.Ludiwuri.Game.World
                     break;
                 }
 
+            doors = roomGameObject.GetComponentsInChildren<Door>();
             lightSources = roomGameObject.GetComponentsInChildren<LightSource>();
+            matchSpawnPoints = roomGameObject.GetComponentsInChildren<MatchSpawnPoint>();
         }
 
         #endregion
@@ -78,6 +83,20 @@ namespace Gang1057.Ludiwuri.Game.World
         public void Hide()
         {
             roomGameObject.SetActive(false);
+        }
+
+        public void Place(MatchBox matchBox)
+        {
+            matchBox.transform.parent = roomGameObject.transform;
+
+            IEnumerable<MatchSpawnPoint> possibleSpawnPoints = matchSpawnPoints.Where(m => m.MatchBox == null);
+
+            MatchSpawnPoint location = possibleSpawnPoints.ElementAt(UnityEngine.Random.Range(0, possibleSpawnPoints.Count()));
+
+            location.MatchBox = matchBox;
+            matchBox.Location = location;
+
+            matchBox.transform.position = location.transform.position;
         }
 
         public bool PlayerInLight(Vector2 position)

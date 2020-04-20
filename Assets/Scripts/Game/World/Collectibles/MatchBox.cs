@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Gang1057.Ludiwuri.Game.Player;
+using UnityEngine;
 
 namespace Gang1057.Ludiwuri.Game.World.Collectibles
 {
@@ -6,7 +7,7 @@ namespace Gang1057.Ludiwuri.Game.World.Collectibles
     /// <summary>
     /// Collectible matches
     /// </summary>
-    public class MatchPack : Collectible
+    public class MatchBox : Collectible
     {
 
         #region Fields
@@ -22,14 +23,21 @@ namespace Gang1057.Ludiwuri.Game.World.Collectibles
 
         #endregion
 
+        #region Properties
+
+        public MatchSpawnPoint Location { get; set; }
+
+        #endregion
+
         #region Methods
 
         /// <inheritdoc/>
         protected override void OnCollected()
         {
-            Debug.Log($"Collected {matchCount} matches!");
-
-            // TODO: Update players match count
+            PlayerController.Instance.MatchCount += matchCount;
+            Location.MatchBox = null;
+            Location = null;
+            RoomManager.Instance.Relocate(this);
         }
 
         #endregion

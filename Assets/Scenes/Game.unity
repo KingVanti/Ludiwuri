@@ -427,6 +427,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameSeconds: 300
+  matchBoxCount: 5
+  matchBoxPrefab: {fileID: 5597948199428322827, guid: 14b33d6a2b4972846928fdf76457aab1,
+    type: 3}
   winTimeText: {fileID: 1349657697}
 --- !u!4 &598037019
 Transform:

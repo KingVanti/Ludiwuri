@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using Gang1057.Ludiwuri.Game.World;
+using Gang1057.Ludiwuri.Game.World.Collectibles;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 
@@ -16,6 +18,8 @@ namespace Gang1057.Ludiwuri.Game
 #pragma warning disable 649
 
         [SerializeField] private int gameSeconds;
+        [SerializeField] private int matchBoxCount;
+        [SerializeField] private GameObject matchBoxPrefab;
         [SerializeField] private TextMeshProUGUI winTimeText;
 
 #pragma warning restore 649
@@ -43,9 +47,21 @@ namespace Gang1057.Ludiwuri.Game
 
         private void Awake()
         {
+            SpawnMatchBoxes();
+
             SecondsToWin = gameSeconds;
 
             StartCoroutine(TickTime());
+        }
+
+        private void SpawnMatchBoxes()
+        {
+            for (int i = 0; i < matchBoxCount; i++)
+            {
+                MatchBox matchBox = Instantiate(matchBoxPrefab).GetComponent<MatchBox>();
+
+                RoomManager.Instance.Relocate(matchBox);
+            }
         }
 
         private IEnumerator TickTime()
