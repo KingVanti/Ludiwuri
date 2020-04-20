@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace Gang1057.Ludiwuri.Menu
@@ -9,6 +10,24 @@ namespace Gang1057.Ludiwuri.Menu
     /// </summary>
     public class MenuManager : MonoBehaviour, ISceneManager
     {
+
+        #region Fields
+
+#pragma warning disable 649
+
+        [SerializeField] private GameObject tutorialGameObject;
+
+#pragma warning restore 649
+
+        #endregion
+
+        #region Methods
+
+        public void ShowTutorial()
+        {
+
+        }
+
         public void PlayGame()
         {
             SceneManager.LoadScene(1);
@@ -17,6 +36,9 @@ namespace Gang1057.Ludiwuri.Menu
         {
             Application.Quit();
         }
+
+        #endregion
+
     }
 
 }
