@@ -79,8 +79,7 @@ namespace Gang1057.Ludiwuri.Game
                 SecondsToWin--;
             }
 
-            // TODO: Set win playerpref
-
+            PlayerPrefs.SetInt("GameState", 1);
             UnityEngine.SceneManagement.SceneManager.LoadScene("EndScreen");
         }
 

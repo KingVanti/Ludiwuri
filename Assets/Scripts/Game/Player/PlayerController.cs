@@ -246,8 +246,7 @@ namespace Gang1057.Ludiwuri.Game.Player
                 countDownTime--;
             }
 
-            // TODO: Set loose playerpref
-
+            PlayerPrefs.SetInt("GameState", 0);
             UnityEngine.SceneManagement.SceneManager.LoadScene("EndScreen");
         }
 
