@@ -246,7 +246,9 @@ namespace Gang1057.Ludiwuri.Game.Player
                 countDownTime--;
             }
 
-            // TODO: Trigger death
+            // TODO: Set loose playerpref
+
+            UnityEngine.SceneManagement.SceneManager.LoadScene("EndScreen");
         }
 
         #endregion

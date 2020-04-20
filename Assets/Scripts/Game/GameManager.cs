@@ -72,7 +72,9 @@ namespace Gang1057.Ludiwuri.Game
                 SecondsToWin--;
             }
 
-            // TODO: Trigger Win
+            // TODO: Set win playerpref
+
+            UnityEngine.SceneManagement.SceneManager.LoadScene("EndScreen");
         }
 
         #endregion
