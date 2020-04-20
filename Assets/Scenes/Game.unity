@@ -263,6 +263,7 @@ GameObject:
   m_Component:
   - component: {fileID: 412066878}
   - component: {fileID: 412066879}
+  - component: {fileID: 412066880}
   m_Layer: 8
   m_Name: GFX
   m_TagString: Untagged
@@ -336,6 +337,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &412066880
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 412066877}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d1f7ba7767f4dd34d86c6ba50ab1f95e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &598037016
 GameObject:
   m_ObjectHideFlags: 0
@@ -1604,25 +1624,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 1.12}
   m_EdgeRadius: 0
---- !u!95 &2751987607171152988
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8027687538504248161}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d1f7ba7767f4dd34d86c6ba50ab1f95e, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!50 &3592956357193328565
 Rigidbody2D:
   serializedVersion: 4
@@ -1658,7 +1659,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   candle: {fileID: 7075418231083918665}
   secondsUntilDeath: 5
-  anim: {fileID: 2751987607171152988}
+  anim: {fileID: 412066880}
   _movementController: {fileID: 4974172010736190011}
   minigameManager: {fileID: 598037020}
   matchCountText: {fileID: 1210773394}
@@ -1693,7 +1694,7 @@ MonoBehaviour:
   walkSpeed: 1.2
   runSpeed: 2
   rb: {fileID: 3592956357193328565}
-  anim: {fileID: 2751987607171152988}
+  anim: {fileID: 412066880}
   controller: {fileID: 3607860372987840282}
 --- !u!114 &6381417758929350295
 MonoBehaviour:
@@ -1771,7 +1772,7 @@ MonoBehaviour:
   maxBurnTime: 10
   minRadius: 0
   maxRadius: 1
-  anim: {fileID: 2751987607171152988}
+  anim: {fileID: 412066880}
   lightSource: {fileID: 6381417758929350295}
   controller: {fileID: 3607860372987840282}
 --- !u!4 &8027687538504248159
@@ -1801,7 +1802,6 @@ GameObject:
   - component: {fileID: 8027687538504248159}
   - component: {fileID: 1651167244841647431}
   - component: {fileID: 3592956357193328565}
-  - component: {fileID: 2751987607171152988}
   - component: {fileID: 3607860372987840282}
   - component: {fileID: 4974172010736190011}
   m_Layer: 8
