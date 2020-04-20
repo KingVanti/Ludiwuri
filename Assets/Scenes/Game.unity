@@ -475,6 +475,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   uiGameObject: {fileID: 2008277427}
+  cursorTexture: {fileID: 2800000, guid: 9ac60a8becbad4c05b3b6ee8f0be0c6a, type: 3}
 --- !u!114 &598037021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1550,7 +1551,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2008277428
 RectTransform:
   m_ObjectHideFlags: 0
