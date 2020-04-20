@@ -114,7 +114,7 @@ namespace Gang1057.Nyctophobia.Game.Player
                     GlobalSoundPlayer.Instance.PlaySound("Scream");
                     Invoke("GoToEndScreen", 2);
 
-                    enabled = false;
+                    active = false;
                     MovementController.Locked = true;
                 }
             }

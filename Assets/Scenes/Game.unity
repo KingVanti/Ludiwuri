@@ -2024,7 +2024,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   candle: {fileID: 7075418231083918665}
-  sanityDamageSpeed: 20
+  sanityDamageSpeed: 35
   sanityHealSpeed: 35
   anim: {fileID: 412066880}
   _movementController: {fileID: 4974172010736190011}
