@@ -53,9 +53,7 @@ namespace Gang1057.Ludiwuri.Game.Player
         /// </summary>
         private int _matchCount;
         private bool _inLight = true;
-        private bool currentCountDownCondition;
         private bool active;
-        private Coroutine countDownRoutine;
         private IInteractable _currentInteractable;
         private float _sanity;
         private LightState _currentLightState;
