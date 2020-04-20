@@ -14,7 +14,8 @@ namespace Gang1057.Ludiwuri.Menu
 
 #pragma warning disable 649
 
-        [SerializeField] private GameObject tutorialGameObject;
+        [SerializeField] private GameObject tutorialGameObject1;
+        [SerializeField] private GameObject tutorialGameObject2;
 
 #pragma warning restore 649
 
@@ -22,9 +23,15 @@ namespace Gang1057.Ludiwuri.Menu
 
         #region Methods
 
-        public void ShowTutorial()
+        public void ShowTutorial1()
         {
-            tutorialGameObject.SetActive(true);
+            tutorialGameObject1.SetActive(true);
+        }
+
+        public void ShowTutorial2()
+        {
+            tutorialGameObject1.SetActive(false);
+            tutorialGameObject2.SetActive(true);
         }
 
         public void PlayGame()
@@ -44,17 +51,17 @@ namespace Gang1057.Ludiwuri.Menu
 
         public void OnTransitionCompleted()
         {
-          
+
         }
 
         public void OnTransitionStarted()
         {
-           
+
         }
 
         public void OnSceneUnload()
         {
-          
+
         }
 
         #endregion
