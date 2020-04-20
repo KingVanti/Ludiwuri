@@ -31,6 +31,8 @@ namespace Gang1057.Ludiwuri
 
 #pragma warning restore 649
 
+        private Coroutine transitionRoutine;
+
         #endregion
 
         #region Properties
@@ -48,10 +50,16 @@ namespace Gang1057.Ludiwuri
         /// Transitions to a scene
         /// </summary>
         /// <param name="sceneIndex">The index of the scene that should be transitioned to</param>
-        public void TransitionTo(int sceneIndex)
+        public void TransitionTo(int sceneIndex, bool cancel = false)
         {
-            StopAllCoroutines();
-            StartCoroutine(TransitionWithAnimation(sceneIndex));
+            if (transitionRoutine != null && cancel)
+            {
+                StopAllCoroutines();
+                transitionRoutine = null;
+            }
+
+            if (transitionRoutine == null)
+                transitionRoutine = StartCoroutine(TransitionWithAnimation(sceneIndex));
         }
 
         /// <summary>
@@ -140,7 +148,7 @@ namespace Gang1057.Ludiwuri
             AsyncOperation operation = UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(sceneIndex);
             yield return new WaitUntil(() => operation.isDone);
 
-             transitionAwareObjects = FindObjectsOfType<MonoBehaviour>().OfType<ITransitionAware>();
+            transitionAwareObjects = FindObjectsOfType<MonoBehaviour>().OfType<ITransitionAware>();
 
             // If a scenemanager was found, notify of scene load
 
@@ -155,6 +163,8 @@ namespace Gang1057.Ludiwuri
 
             foreach (ITransitionAware transitionAwareObject in transitionAwareObjects)
                 transitionAwareObject.OnTransitionCompleted();
+
+            transitionRoutine = null;
         }
 
         /// <summary>
