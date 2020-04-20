@@ -46,9 +46,14 @@ namespace Gang1057.Ludiwuri.Game
                         ));
 
                 IEnumerable<LightSource> litSources = sources.Where(l => l.Lit);
-                LightSource nextSource = litSources.ElementAt(Random.Range(0, litSources.Count()));
 
-                nextSource.Lit = false;
+                if (litSources.Count() > 0)
+                {
+
+                    LightSource nextSource = litSources.ElementAt(Random.Range(0, litSources.Count()));
+
+                    nextSource.Lit = false;
+                }
             }
         }
 
