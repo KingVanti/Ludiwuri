@@ -80,7 +80,7 @@ namespace Gang1057.Ludiwuri.Game.Player
             {
                 _currentInteractable = value;
 
-                RefreshInteractionPrompt();
+                UpdateInteractionPrompt();
             }
         }
 
@@ -95,7 +95,7 @@ namespace Gang1057.Ludiwuri.Game.Player
                 _matchCount = value;
                 matchCountText.text = value.ToString();
 
-                RefreshInteractionPrompt();
+                UpdateInteractionPrompt();
             }
         }
 
@@ -161,7 +161,7 @@ namespace Gang1057.Ludiwuri.Game.Player
             candle.Light();
         }
 
-        public void RefreshInteractionPrompt()
+        public void UpdateInteractionPrompt()
         {
             interactionPrompt.text = _currentInteractable != null && _currentInteractable.Interactable ? _currentInteractable.Prompt : "";
         }

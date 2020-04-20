@@ -43,7 +43,7 @@ namespace Gang1057.Ludiwuri.Game.Player
                 lightSource.enabled = value;
 
                 controller.UpdateCurrentLightState();
-                controller.RefreshInteractionPrompt();
+                controller.UpdateInteractionPrompt();
             }
         }
 

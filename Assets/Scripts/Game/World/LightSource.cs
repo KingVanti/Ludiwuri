@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Gang1057.Ludiwuri.Game.Player;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
 
@@ -49,6 +50,9 @@ namespace Gang1057.Ludiwuri.Game.World
                         StopAllCoroutines();
                         FixedOn = false;
                     }
+
+                    if (PlayerController.Instance != null)
+                        PlayerController.Instance.UpdateInteractionPrompt();
                 }
             }
         }
