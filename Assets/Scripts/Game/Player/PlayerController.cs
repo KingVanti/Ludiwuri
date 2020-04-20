@@ -239,7 +239,7 @@ namespace Gang1057.Ludiwuri.Game.Player
 
                 // If the player pressed the reload button, his light is not burning and he has matches
 
-                if (Input.GetButtonDown("Reload") && !candle.Lit && MatchCount > 0)
+                if (Input.GetButtonDown("Reload") && MatchCount > 0)
                 {
                     MovementController.Locked = true;
                     minigameManager.StartMinigame();
