@@ -43,14 +43,6 @@ namespace Gang1057.Ludiwuri.Game.World.Collectibles
         /// </summary>
         protected abstract void OnCollected();
 
-        /// <summary>
-        /// Disposes of the collectible
-        /// </summary>
-        protected virtual void Dispose()
-        {
-            Destroy(gameObject);
-        }
-
 
         /// <summary>
         /// Collects this collectible
@@ -60,10 +52,6 @@ namespace Gang1057.Ludiwuri.Game.World.Collectibles
             // Handle collection logic
 
             OnCollected();
-
-            // Dispose of the collectible
-
-            Dispose();
         }
 
         #endregion
