@@ -87,17 +87,15 @@ namespace Gang1057.Ludiwuri
                 DontDestroyOnLoad(gameObject);
                 Instance = this;
 
-                // Find the ISceneManager of this scene by going through all monobehaviours and checking if any implement ISceneManager
+                IEnumerable<ITransitionAware> transitionAwareObjects = FindObjectsOfType<MonoBehaviour>().OfType<ITransitionAware>();
 
-                ITransitionAware sceneManager = FindObjectsOfType<MonoBehaviour>().OfType<ITransitionAware>().FirstOrDefault();
 
-                // If a scenemanager was found, call scene load and transition completion events to initialize the scene
+                foreach (ITransitionAware transitionAwareObject in transitionAwareObjects)
+                    transitionAwareObject.OnSceneLoad();
 
-                if (sceneManager != null)
-                {
-                    sceneManager.OnSceneLoad();
-                    sceneManager.OnTransitionCompleted();
-                }
+
+                foreach (ITransitionAware transitionAwareObject in transitionAwareObjects)
+                    transitionAwareObject.OnTransitionCompleted();
             }
 
             // If there is already a singleton instance
