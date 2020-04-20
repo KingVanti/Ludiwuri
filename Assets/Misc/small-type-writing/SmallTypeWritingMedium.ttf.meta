@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: eed9e245803f34d4ea4123c9a57f8f5e
+guid: f3af4bc167f96458b8413f9aa53fb22d
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -8,9 +8,9 @@ TrueTypeFontImporter:
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
-  fontName: Elysian
+  fontName: SmallTypeWriting-Medium
   fontNames:
-  - Elysian
+  - SmallTypeWriting-Medium
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
