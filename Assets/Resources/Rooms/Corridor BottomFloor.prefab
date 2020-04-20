@@ -383,7 +383,7 @@ PrefabInstance:
     - target: {fileID: 8818614852379414118, guid: 8b4d393e33bf4c340bee55d5748e1609,
         type: 3}
       propertyPath: _connectedRoomName
-      value: Livingroom
+      value: LivingRoom
       objectReference: {fileID: 0}
     - target: {fileID: 8818614852379414118, guid: 8b4d393e33bf4c340bee55d5748e1609,
         type: 3}
