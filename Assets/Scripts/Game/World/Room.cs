@@ -70,18 +70,12 @@ namespace Gang1057.Ludiwuri.Game.World
 
         #region Methods
 
-        /// <summary>
-        /// Prepares the room for entering
-        /// </summary>
-        public void OnEnter()
+        public void Show()
         {
             roomGameObject.SetActive(true);
         }
 
-        /// <summary>
-        /// Prepares the room for exiting
-        /// </summary>
-        public void OnExit()
+        public void Hide()
         {
             roomGameObject.SetActive(false);
         }

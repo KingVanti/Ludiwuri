@@ -35,7 +35,7 @@ namespace Gang1057.Ludiwuri.Game.World
         /// <summary>
         /// A dictionary of cached rooms, indexed by their name
         /// </summary>
-        private Dictionary<string, Room> cachedRooms = new Dictionary<string, Room>();
+        private Dictionary<string, Room> rooms = new Dictionary<string, Room>();
         /// <summary>
         /// The currently active room
         /// </summary>
@@ -62,14 +62,14 @@ namespace Gang1057.Ludiwuri.Game.World
         {
             // Get the room with that name
 
-            Room room = GetRoom(roomName);
+            Room room = rooms[roomName];
 
             // Enter the room
 
             EnterRoom(room);
         }
 
-        public bool PlayerInLight (Vector2 position)
+        public bool PlayerInLight(Vector2 position)
         {
             return currentRoom.PlayerInLight(position);
         }
@@ -87,11 +87,11 @@ namespace Gang1057.Ludiwuri.Game.World
 
             // Exit the current room
 
-            currentRoom.OnExit();
+            currentRoom.Hide();
 
             // Enter the new room
 
-            room.OnEnter();
+            room.Show();
 
             // Get the door that connects to the previous room
 
@@ -117,11 +117,11 @@ namespace Gang1057.Ludiwuri.Game.World
         {
             // Get the room with the initial rooms name
 
-            Room room = GetRoom(initialRoomName);
+            Room room = rooms[initialRoomName];
 
             // Enter the new room
 
-            room.OnEnter();
+            room.Show();
 
             // Get the bed spawn-point
 
@@ -140,67 +140,30 @@ namespace Gang1057.Ludiwuri.Game.World
             onRoomEntered.Invoke(room);
         }
 
-        /// <summary>
-        /// Gets the room with the given name
-        /// </summary>
-        /// <param name="roomName">The rooms name</param>
-        /// <returns>The room</returns>
-        private Room GetRoom(string roomName)
+        private void LoadRooms()
         {
-            // Declare variable for the room
-
-            Room room = null;
-
-            // If the room is already cached
-
-            if (cachedRooms.ContainsKey(roomName))
-
-                // Get the room from the cache
-
-                room = cachedRooms[roomName];
-
-            // If it is not yet cached
-
-            else
+            foreach (GameObject roomPrefab in Resources.LoadAll<GameObject>("Rooms"))
             {
-                // Load the room
+                // Instantiate the prefab
 
-                room = LoadRoomFromAsset(roomName);
+                GameObject roomGameObject = Instantiate(roomPrefab, transform);
+
+                // Create a room
+
+                Room room = new Room(roomPrefab.name, roomGameObject);
+
+                room.Hide();
+
+                // Store the room
+
+                rooms.Add(room.Name, room);
             }
-
-            // Return the room
-
-            return room;
-        }
-
-        /// <summary>
-        /// Loads a room 
-        /// </summary>
-        /// <param name="roomAsset">The rooms asset</param>
-        /// <returns>The loaded room</returns>
-        private Room LoadRoomFromAsset(string roomName)
-        {
-            // Instantiate the prefab
-
-            GameObject roomGameObject = Instantiate(
-                Resources.Load<GameObject>($"Rooms/{roomName}")
-                , transform);
-
-            // Create a room
-
-            Room room = new Room(roomName, roomGameObject);
-
-            // Cache the room
-
-            cachedRooms.Add(room.Name, room);
-
-            // Return the loaded room
-
-            return room;
         }
 
         private void Awake()
         {
+            LoadRooms();
+
             Instance = this;
 
             // Enter the initial room
