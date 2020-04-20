@@ -42,7 +42,7 @@ namespace Gang1057.Ludiwuri.Game.Player
                 anim.SetBool("CandleLit", value);
                 lightSource.enabled = value;
 
-                controller.RefreshDeathCountdownCondition();
+                controller.UpdateCurrentLightState();
                 controller.RefreshInteractionPrompt();
             }
         }

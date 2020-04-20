@@ -2,6 +2,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Gang1057.Ludiwuri.Game.Player
 {
@@ -23,11 +24,13 @@ namespace Gang1057.Ludiwuri.Game.Player
 
         #region Fields
 
+        public FloatEvent onSanityChange;
         public Candle candle;
 
 #pragma warning disable 649
 
-        [SerializeField] private int secondsUntilDeath;
+        [SerializeField] private float sanityDamageSpeed;
+        [SerializeField] private float sanityHealSpeed;
         /// <summary>
         /// The players animator
         /// </summary>
@@ -42,7 +45,6 @@ namespace Gang1057.Ludiwuri.Game.Player
         [SerializeField] private MatchMinigameManager minigameManager;
         [SerializeField] private TextMeshProUGUI matchCountText;
         [SerializeField] private TextMeshProUGUI interactionPrompt;
-        [SerializeField] private DeathCountdownText deathCountdownText;
 
 #pragma warning restore 649
 
@@ -54,6 +56,8 @@ namespace Gang1057.Ludiwuri.Game.Player
         private bool currentCountDownCondition;
         private Coroutine countDownRoutine;
         private IInteractable _currentInteractable;
+        private float _sanity;
+        private LightState _currentLightState;
 
         #endregion
 
@@ -97,6 +101,23 @@ namespace Gang1057.Ludiwuri.Game.Player
             }
         }
 
+        public float Sanity
+        {
+            get { return _sanity; }
+            private set
+            {
+                _sanity = Mathf.Clamp(value, 0, 100);
+
+                onSanityChange.Invoke(_sanity);
+
+                if (_sanity == 0)
+                {
+                    PlayerPrefs.SetInt("GameState", 0);
+                    UnityEngine.SceneManagement.SceneManager.LoadScene(2);
+                }
+            }
+        }
+
         public bool InLight
         {
             get
@@ -110,8 +131,17 @@ namespace Gang1057.Ludiwuri.Game.Player
                 {
                     _inLight = value;
 
-                    RefreshDeathCountdownCondition();
+                    UpdateCurrentLightState();
                 }
+            }
+        }
+
+        public LightState CurrentLightState
+        {
+            get { return _currentLightState; }
+            private set
+            {
+                _currentLightState = value;
             }
         }
 
@@ -140,29 +170,19 @@ namespace Gang1057.Ludiwuri.Game.Player
             candle.Light();
         }
 
-        public void RefreshDeathCountdownCondition()
-        {
-            bool countdown = !InLight && !candle.Lit;
-
-            if (countdown != currentCountDownCondition)
-            {
-                if (countdown)
-                {
-                    currentCountDownCondition = true;
-                    countDownRoutine = StartCoroutine(CountDownToDeath());
-                }
-                else
-                {
-                    currentCountDownCondition = false;
-                    StopCoroutine(countDownRoutine);
-                    deathCountdownText.SetCountdownTime(null);
-                }
-            }
-        }
-
         public void RefreshInteractionPrompt()
         {
             interactionPrompt.text = _currentInteractable != null && _currentInteractable.Interactable ? _currentInteractable.Prompt : "";
+        }
+
+        public void UpdateCurrentLightState()
+        {
+            if (InLight)
+                CurrentLightState = LightState.InLight;
+            else if (candle.Lit)
+                CurrentLightState = LightState.InOwnLight;
+            else
+                CurrentLightState = LightState.InShadow;
         }
 
 
@@ -171,8 +191,8 @@ namespace Gang1057.Ludiwuri.Game.Player
             Instance = this;
 
             MatchCount = 5;
+            Sanity = 100;
             CurrentInteractable = null;
-            deathCountdownText.SetCountdownTime(null);
         }
 
         /// <summary>
@@ -199,6 +219,19 @@ namespace Gang1057.Ludiwuri.Game.Player
             // Update InLight property
 
             InLight = RoomManager.Instance.PlayerInLight(transform.position);
+
+            switch (CurrentLightState)
+            {
+                case LightState.InLight:
+                    Sanity += sanityHealSpeed * Time.deltaTime;
+                    break;
+                case LightState.InOwnLight:
+                    Sanity -= sanityDamageSpeed / 2 * Time.deltaTime;
+                    break;
+                case LightState.InShadow:
+                    Sanity -= sanityDamageSpeed * Time.deltaTime;
+                    break;
+            }
         }
 
         /// <summary>
@@ -235,20 +268,26 @@ namespace Gang1057.Ludiwuri.Game.Player
             }
         }
 
-        private IEnumerator CountDownToDeath()
+        #endregion
+
+        #region Enums
+
+        /// <summary>
+        /// Possible light states
+        /// </summary>
+        public enum LightState
         {
-            int countDownTime = secondsUntilDeath;
-
-            while (countDownTime > 0)
-            {
-                deathCountdownText.SetCountdownTime(countDownTime);
-                yield return new WaitForSeconds(1);
-                countDownTime--;
-            }
-
-            PlayerPrefs.SetInt("GameState", 0);
-            UnityEngine.SceneManagement.SceneManager.LoadScene("EndScreen");
+            InLight,
+            InOwnLight,
+            InShadow
         }
+
+        #endregion
+
+        #region SubClasses
+
+        [System.Serializable]
+        public class FloatEvent : UnityEvent<float> { }
 
         #endregion
 
