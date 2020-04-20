@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4885911240877870355}
   m_Layer: 0
-  m_Name: Corridor Downstairs
+  m_Name: Corridor BottomFloor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -385,6 +385,11 @@ PrefabInstance:
       propertyPath: _connectedRoomName
       value: Livingroom
       objectReference: {fileID: 0}
+    - target: {fileID: 8818614852379414118, guid: 8b4d393e33bf4c340bee55d5748e1609,
+        type: 3}
+      propertyPath: _prompt
+      value: Go to living room
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b4d393e33bf4c340bee55d5748e1609, type: 3}
 --- !u!4 &2086000410071104130 stripped
@@ -459,6 +464,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Stairs_Up
+      objectReference: {fileID: 0}
+    - target: {fileID: 7216615791533800890, guid: dcf1f97d7efafd940a9f4396df901daf,
+        type: 3}
+      propertyPath: _prompt
+      value: Go upstairs
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dcf1f97d7efafd940a9f4396df901daf, type: 3}
@@ -689,6 +699,11 @@ PrefabInstance:
         type: 3}
       propertyPath: _connectedRoomName
       value: Kitchen
+      objectReference: {fileID: 0}
+    - target: {fileID: 8818614852379414118, guid: 8b4d393e33bf4c340bee55d5748e1609,
+        type: 3}
+      propertyPath: _prompt
+      value: Go to kitchen
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b4d393e33bf4c340bee55d5748e1609, type: 3}

@@ -14,6 +14,11 @@
         /// </summary>
         bool Interactable { get; }
 
+        /// <summary>
+        /// Prompt that is displayed before interacting with the object
+        /// </summary>
+        string Prompt { get; }
+
         #endregion
 
         #region Methods

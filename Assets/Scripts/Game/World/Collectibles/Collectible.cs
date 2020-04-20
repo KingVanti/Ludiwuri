@@ -9,10 +9,22 @@ namespace Gang1057.Ludiwuri.Game.World.Collectibles
     public abstract class Collectible : MonoBehaviour, IInteractable
     {
 
+        #region Fields
+
+#pragma warning disable 649
+
+        [SerializeField] private string _prompt;
+
+#pragma warning restore 649
+
+        #endregion
+
         #region Properties
 
         /// <inheritdoc/>
         public bool Interactable { get { return true; } }
+
+        public string Prompt { get { return _prompt; } }
 
         #endregion
 

@@ -290,6 +290,11 @@ PrefabInstance:
       propertyPath: _connectedRoomName
       value: StudyRoom
       objectReference: {fileID: 0}
+    - target: {fileID: 8818614852379414118, guid: 8b4d393e33bf4c340bee55d5748e1609,
+        type: 3}
+      propertyPath: _prompt
+      value: Go to study room
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b4d393e33bf4c340bee55d5748e1609, type: 3}
 --- !u!4 &2086000410071104130 stripped
@@ -595,6 +600,11 @@ PrefabInstance:
       propertyPath: _connectedRoomName
       value: ParentRoom
       objectReference: {fileID: 0}
+    - target: {fileID: 8818614852379414118, guid: 8b4d393e33bf4c340bee55d5748e1609,
+        type: 3}
+      propertyPath: _prompt
+      value: Go to parents room
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b4d393e33bf4c340bee55d5748e1609, type: 3}
 --- !u!4 &3047040201491630430 stripped
@@ -849,6 +859,11 @@ PrefabInstance:
         type: 3}
       propertyPath: _connectedRoomName
       value: Corridor BottomFloor
+      objectReference: {fileID: 0}
+    - target: {fileID: 4462812618174662048, guid: c0c14b97511db6c4aae5aab7bc76fc4e,
+        type: 3}
+      propertyPath: _prompt
+      value: Go downstairs
       objectReference: {fileID: 0}
     - target: {fileID: 4873305271816608971, guid: c0c14b97511db6c4aae5aab7bc76fc4e,
         type: 3}

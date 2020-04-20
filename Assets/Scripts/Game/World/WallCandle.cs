@@ -14,6 +14,8 @@ namespace Gang1057.Ludiwuri.Game.World
         /// <inheritdoc/>
         public bool Interactable { get { return !Lit && PlayerController.Instance.candle.Lit; } }
 
+        public string Prompt { get { return "Light candle"; } }
+
         #endregion
 
         #region Methods

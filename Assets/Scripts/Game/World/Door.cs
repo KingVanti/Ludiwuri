@@ -13,6 +13,7 @@ namespace Gang1057.Ludiwuri.Game.World
 
 #pragma warning disable 649
 
+        [SerializeField] private string _prompt;
         /// <summary>
         /// Backing field to <see cref="ConnectedRoomName"/>
         /// </summary>
@@ -35,6 +36,8 @@ namespace Gang1057.Ludiwuri.Game.World
 
         /// <inheritdoc/>
         public bool Interactable { get { return true; } }
+
+        public string Prompt { get { return _prompt; } }
 
         #endregion
 
