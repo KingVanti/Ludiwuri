@@ -16,7 +16,6 @@ namespace Gang1057.Ludiwuri.Menu
         public void Quit()
         {
             Application.Quit();
-            Debug.Log("Game Quitted");
         }
     }
 
