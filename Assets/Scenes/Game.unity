@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -440,8 +440,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0fad55c890d48b498c95a1c667923a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameSeconds: 180
-  matchBoxCount: 2
+  gameSeconds: 240
+  matchBoxCount: 3
   matchBoxPrefab: {fileID: 5597948199428322827, guid: 14b33d6a2b4972846928fdf76457aab1,
     type: 3}
   winTimeText: {fileID: 1349657697}
@@ -501,8 +501,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16cc8c14332f93e448034577a8a57ca2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startMinWaitTime: 5
-  startMaxWaitTime: 10
+  startMinWaitTime: 4
+  startMaxWaitTime: 6
   endMinWaitTime: 1
   endMaxWaitTime: 2
   gameManager: {fileID: 598037018}
