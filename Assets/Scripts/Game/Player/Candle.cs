@@ -43,6 +43,7 @@ namespace Gang1057.Ludiwuri.Game.Player
                 lightSource.enabled = value;
 
                 controller.RefreshDeathCountdownCondition();
+                controller.RefreshInteractionPrompt();
             }
         }
 
