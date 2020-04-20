@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
 
 namespace Gang1057.Ludiwuri.Game.World
@@ -11,6 +12,8 @@ namespace Gang1057.Ludiwuri.Game.World
 
 #pragma warning disable 649
 
+        [SerializeField] private float minMinBurnTime;
+        [SerializeField] private float maxMinBurnTime;
         /// <summary>
         /// The source
         /// </summary>
@@ -33,11 +36,24 @@ namespace Gang1057.Ludiwuri.Game.World
             get { return _lit; }
             set
             {
-                _lit = value;
-                lightSource.enabled = value;
-                anim.SetBool("Lit", value);
+                if (value != _lit)
+                {
+                    _lit = value;
+                    lightSource.enabled = value;
+                    anim.SetBool("Lit", value);
+
+                    if (value)
+                        StartCoroutine(FixedTime());
+                    else
+                    {
+                        StopAllCoroutines();
+                        FixedOn = false;
+                    }
+                }
             }
         }
+
+        public bool FixedOn { get; private set; }
 
         public float Radius { get { return lightSource.pointLightOuterRadius * 0.5f; } }
 
@@ -48,6 +64,13 @@ namespace Gang1057.Ludiwuri.Game.World
         private void Awake()
         {
             Lit = true;
+        }
+
+        private IEnumerator FixedTime()
+        {
+            FixedOn = true;
+            yield return new WaitForSeconds(Random.Range(minMinBurnTime, maxMinBurnTime));
+            FixedOn = false;
         }
 
         #endregion

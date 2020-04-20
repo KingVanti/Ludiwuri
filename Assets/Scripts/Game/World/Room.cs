@@ -78,12 +78,12 @@ namespace Gang1057.Ludiwuri.Game.World
 
         public void Show()
         {
-            roomGameObject.SetActive(true);
+            roomGameObject.transform.position = new Vector3(0, 0, 0);
         }
 
         public void Hide()
         {
-            roomGameObject.SetActive(false);
+            roomGameObject.transform.position = new Vector3(100, 0, 0);
         }
 
         public void Place(MatchBox matchBox)

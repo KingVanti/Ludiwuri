@@ -214,5 +214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a882ad4b0767b1b4cb0b2a55334ff2b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minMinBurnTime: 3
+  maxMinBurnTime: 5
   lightSource: {fileID: 8808635617865203869}
   anim: {fileID: 2173233406222710632}

@@ -45,7 +45,7 @@ namespace Gang1057.Ludiwuri.Game
                         Mathf.Lerp(endMinWaitTime, endMaxWaitTime, gameManager.GameProgressionT)
                         ));
 
-                IEnumerable<LightSource> litSources = sources.Where(l => l.Lit);
+                IEnumerable<LightSource> litSources = sources.Where(l => l.Lit && !l.FixedOn);
 
                 if (litSources.Count() > 0)
                 {
