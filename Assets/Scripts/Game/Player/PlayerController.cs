@@ -115,7 +115,7 @@ namespace Gang1057.Ludiwuri.Game.Player
                     Invoke("GoToEndScreen", 2);
 
                     enabled = false;
-                    MovementController.enabled = false;
+                    MovementController.Locked = true;
                 }
             }
         }

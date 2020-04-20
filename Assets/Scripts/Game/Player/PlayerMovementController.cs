@@ -47,6 +47,7 @@ namespace Gang1057.Ludiwuri.Game.Player
         /// Backing field to <see cref="FaceingDirection"/>
         /// </summary>
         private Directions _faceingDirection = Directions.Right;
+        private bool _locked;
 
         #endregion
 
@@ -55,7 +56,17 @@ namespace Gang1057.Ludiwuri.Game.Player
         /// <summary>
         /// Allows to lock the player in place
         /// </summary>
-        public bool Locked { get; set; }
+        public bool Locked
+        {
+            get { return _locked; }
+            set
+            {
+                _locked = value;
+
+                if (_locked)
+                    rb.velocity = Vector2.zero;
+            }
+        }
 
 
         /// <summary>
