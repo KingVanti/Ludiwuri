@@ -32,6 +32,7 @@ namespace Gang1057.Ludiwuri.Menu
         {
             SceneManager.LoadScene(1);
         }
+
         public void Quit()
         {
             Application.Quit();
