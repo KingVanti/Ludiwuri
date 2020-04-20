@@ -32,7 +32,7 @@ namespace Gang1057.Ludiwuri.Game.World
             }
         }
 
-        public float Radius { get { return lightSource.pointLightOuterRadius * 0.75f; } }
+        public float Radius { get { return lightSource.pointLightOuterRadius * 0.5f; } }
 
         #endregion
 
