@@ -139,21 +139,18 @@ namespace Gang1057.Ludiwuri.Game.Player
         /// </summary>
         private void Update()
         {
-            // If the player can move
+            // Update "Running" property
 
-            if (CanMove)
-            {
-                // Update "Running" property
+            bool running = Input.GetButton("Sprint");
 
-                bool running = Input.GetButton("Sprint");
+            if (running != Running)
+                Running = running;
 
-                if (running != Running)
-                    Running = running;
+            float input = CanMove ? Input.GetAxis("Horizontal") : 0;
 
-                // Move the player horizontally
+            // Move the player horizontally
 
-                rb.velocity = new Vector2(Input.GetAxis("Horizontal") * Speed, 0);
-            }
+            rb.velocity = new Vector2(input * Speed, 0);
 
             // If the player is moving
 

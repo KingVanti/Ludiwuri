@@ -133,7 +133,7 @@ namespace Gang1057.Ludiwuri.Game.Player
         /// </summary>
         public void OnMatchMinigameComplete()
         {
-            // Remove a match
+            MovementController.Locked = false;
 
             MatchCount--;
 
@@ -191,8 +191,10 @@ namespace Gang1057.Ludiwuri.Game.Player
             // If the player pressed the reload button, his light is not burning and he has matches
 
             if (Input.GetButtonDown("Reload") && !candle.Lit && MatchCount > 0)
-
+            {
+                MovementController.Locked = true;
                 minigameManager.StartMinigame();
+            }
 
             // Update InLight property
 
