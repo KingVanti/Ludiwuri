@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5286394423498162961}
   - component: {fileID: 8808635617865203869}
-  - component: {fileID: 3330534730999649609}
   m_Layer: 9
   m_Name: LightSource
   m_TagString: Untagged
@@ -73,19 +72,6 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
---- !u!114 &3330534730999649609
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 215188257353967765}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90c08f33f978b2d46954d7875f7ead4b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lightSource: {fileID: 8808635617865203869}
 --- !u!1 &7876727928352190922
 GameObject:
   m_ObjectHideFlags: 0

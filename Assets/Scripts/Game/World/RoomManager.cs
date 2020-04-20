@@ -58,6 +58,17 @@ namespace Gang1057.Ludiwuri.Game.World
 
         #region Methods
 
+        public void Initialize()
+        {
+            LoadRooms();
+
+            Instance = this;
+
+            // Enter the initial room
+
+            EnterInitialRoom();
+        }
+
         /// <summary>
         /// Enters the room with the given name
         /// </summary>
@@ -173,15 +184,9 @@ namespace Gang1057.Ludiwuri.Game.World
             }
         }
 
-        private void Awake()
+        public LightSource[] GetAllLightSource()
         {
-            LoadRooms();
-
-            Instance = this;
-
-            // Enter the initial room
-
-            EnterInitialRoom();
+            return rooms.Values.SelectMany(r => r.LightSources).ToArray();
         }
 
         #endregion

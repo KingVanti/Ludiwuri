@@ -21,6 +21,8 @@ namespace Gang1057.Ludiwuri.Game
         [SerializeField] private int matchBoxCount;
         [SerializeField] private GameObject matchBoxPrefab;
         [SerializeField] private TextMeshProUGUI winTimeText;
+        [SerializeField] private RoomManager roomManager;
+        [SerializeField] private LightSourceManager lightSourceManager;
 
 #pragma warning restore 649
 
@@ -41,12 +43,17 @@ namespace Gang1057.Ludiwuri.Game
             }
         }
 
+        public float GameProgressionT { get { return SecondsToWin / (float)gameSeconds; } }
+
         #endregion
 
         #region Methods
 
         private void Awake()
         {
+            roomManager.Initialize();
+            lightSourceManager.Initialize();
+
             SpawnMatchBoxes();
 
             SecondsToWin = gameSeconds;

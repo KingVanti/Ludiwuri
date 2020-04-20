@@ -368,6 +368,7 @@ GameObject:
   - component: {fileID: 598037018}
   - component: {fileID: 598037017}
   - component: {fileID: 598037020}
+  - component: {fileID: 598037021}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -431,6 +432,8 @@ MonoBehaviour:
   matchBoxPrefab: {fileID: 5597948199428322827, guid: 14b33d6a2b4972846928fdf76457aab1,
     type: 3}
   winTimeText: {fileID: 1349657697}
+  roomManager: {fileID: 598037017}
+  lightSourceManager: {fileID: 598037021}
 --- !u!4 &598037019
 Transform:
   m_ObjectHideFlags: 0
@@ -472,6 +475,23 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   uiGameObject: {fileID: 2008277427}
+--- !u!114 &598037021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 598037016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16cc8c14332f93e448034577a8a57ca2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startMinWaitTime: 10
+  startMaxWaitTime: 15
+  endMinWaitTime: 2
+  endMaxWaitTime: 7
+  gameManager: {fileID: 598037018}
 --- !u!1 &951814145
 GameObject:
   m_ObjectHideFlags: 0

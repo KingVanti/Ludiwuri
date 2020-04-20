@@ -13,6 +13,7 @@ namespace Gang1057.Ludiwuri.Game.World
         /// The source
         /// </summary>
         [SerializeField] protected Light2D lightSource;
+        private bool _lit = true;
 
         #endregion
 
@@ -21,7 +22,15 @@ namespace Gang1057.Ludiwuri.Game.World
         /// <summary>
         /// Indicates whether the source is currently lit
         /// </summary>
-        public bool Lit { get; protected set; } = true;
+        public bool Lit
+        {
+            get { return _lit; }
+            set
+            {
+                _lit = value;
+                lightSource.enabled = value;
+            }
+        }
 
         public float Radius { get { return lightSource.pointLightOuterRadius * 0.75f; } }
 
