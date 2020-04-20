@@ -56,6 +56,7 @@ namespace Gang1057.Ludiwuri.Game.Player
         private bool active;
         private IInteractable _currentInteractable;
         private float _sanity;
+        private LightState _currentLightState;
 
         #endregion
 
@@ -137,7 +138,17 @@ namespace Gang1057.Ludiwuri.Game.Player
             }
         }
 
-        public LightState CurrentLightState { get; private set; }
+        public LightState CurrentLightState
+        {
+            get { return _currentLightState; }
+            private set
+            {
+                if ((_currentLightState == LightState.InLight || _currentLightState == LightState.InOwnLight) && value == LightState.InShadow)
+                    GlobalSoundPlayer.Instance.PlaySound("Whimper");
+
+                _currentLightState = value;
+            }
+        }
 
         #endregion
 
