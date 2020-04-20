@@ -428,7 +428,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameSeconds: 300
-  matchBoxCount: 5
+  matchBoxCount: 3
   matchBoxPrefab: {fileID: 5597948199428322827, guid: 14b33d6a2b4972846928fdf76457aab1,
     type: 3}
   winTimeText: {fileID: 1349657697}
@@ -487,10 +487,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16cc8c14332f93e448034577a8a57ca2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startMinWaitTime: 10
-  startMaxWaitTime: 15
-  endMinWaitTime: 2
-  endMaxWaitTime: 7
+  startMinWaitTime: 5
+  startMaxWaitTime: 10
+  endMinWaitTime: 1
+  endMaxWaitTime: 5
   gameManager: {fileID: 598037018}
 --- !u!1 &951814145
 GameObject:
