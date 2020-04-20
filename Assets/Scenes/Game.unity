@@ -536,7 +536,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clips:
-  - {fileID: 8300000, guid: 9cc97eb23c8235a4c87ee94b8ae675a6, type: 3}
   - {fileID: 8300000, guid: 9d0c97a3a26a88d45a93a77094cc17c6, type: 3}
   - {fileID: 8300000, guid: 26979e3e96a1eb74fb1ad7bb6bb27c42, type: 3}
   - {fileID: 8300000, guid: 1009032c33ac6404ca3b04501b285e9e, type: 3}
@@ -1860,8 +1859,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b76ceb46e622f0845816f01d54858af6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minBurnTime: 7
-  maxBurnTime: 10
+  minBurnTime: 10
+  maxBurnTime: 15
   minRadius: 0
   maxRadius: 1
   anim: {fileID: 412066880}
