@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Gang1057.Ludiwuri.Game.Player
+namespace Gang1057.Nyctophobia.Game.Player
 {
 
     public class StepPlayer : MonoBehaviour

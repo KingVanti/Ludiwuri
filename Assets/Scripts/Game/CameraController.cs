@@ -1,7 +1,7 @@
-﻿using Gang1057.Ludiwuri.Game.World;
+﻿using Gang1057.Nyctophobia.Game.World;
 using UnityEngine;
 
-namespace Gang1057.Ludiwuri.Game
+namespace Gang1057.Nyctophobia.Game
 {
 
     /// <summary>

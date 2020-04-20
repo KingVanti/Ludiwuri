@@ -1,7 +1,7 @@
-﻿using Gang1057.Ludiwuri.Game.Player;
+﻿using Gang1057.Nyctophobia.Game.Player;
 using UnityEngine;
 
-namespace Gang1057.Ludiwuri.Game.World.Collectibles
+namespace Gang1057.Nyctophobia.Game.World.Collectibles
 {
 
     /// <summary>

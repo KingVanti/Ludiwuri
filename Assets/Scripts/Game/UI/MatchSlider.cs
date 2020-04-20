@@ -3,7 +3,7 @@ using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace Gang1057.Ludiwuri.Game.UI
+namespace Gang1057.Nyctophobia.Game.UI
 {
 
     /// <summary>

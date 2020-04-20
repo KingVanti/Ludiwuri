@@ -1,9 +1,9 @@
-﻿using Gang1057.Ludiwuri.Game.Player;
+﻿using Gang1057.Nyctophobia.Game.Player;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
 
-namespace Gang1057.Ludiwuri.Game.World
+namespace Gang1057.Nyctophobia.Game.World
 {
 
     public class LightSource : MonoBehaviour

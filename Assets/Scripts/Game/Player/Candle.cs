@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
 
-namespace Gang1057.Ludiwuri.Game.Player
+namespace Gang1057.Nyctophobia.Game.Player
 {
 
     /// <summary>

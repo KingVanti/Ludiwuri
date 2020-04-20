@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 
-namespace Gang1057.Ludiwuri.Game
+namespace Gang1057.Nyctophobia.Game
 {
 
     /// <summary>

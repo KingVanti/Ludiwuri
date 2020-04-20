@@ -4,7 +4,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Gang1057.Ludiwuri
+namespace Gang1057.Nyctophobia
 {
 
     /// <summary>

@@ -1,12 +1,12 @@
-﻿using Gang1057.Ludiwuri.Game.Player;
-using Gang1057.Ludiwuri.Game.World.Collectibles;
+﻿using Gang1057.Nyctophobia.Game.Player;
+using Gang1057.Nyctophobia.Game.World.Collectibles;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Gang1057.Ludiwuri.Game.World
+namespace Gang1057.Nyctophobia.Game.World
 {
 
     /// <summary>

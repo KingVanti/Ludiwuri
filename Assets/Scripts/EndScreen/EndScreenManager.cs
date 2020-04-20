@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Gang1057.Ludiwuri.EndScreen
+namespace Gang1057.Nyctophobia.EndScreen
 {
 
     public class EndScreenManager : MonoBehaviour, ITransitionAware

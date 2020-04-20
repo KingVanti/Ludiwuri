@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Gang1057.Ludiwuri.Menu
+namespace Gang1057.Nyctophobia.Menu
 {
 
     /// <summary>

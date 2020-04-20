@@ -1,4 +1,4 @@
-﻿namespace Gang1057.Ludiwuri
+﻿namespace Gang1057.Nyctophobia
 {
 
     public interface ITransitionAware

@@ -1,10 +1,10 @@
-﻿using Gang1057.Ludiwuri.Game.World;
+﻿using Gang1057.Nyctophobia.Game.World;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace Gang1057.Ludiwuri.Game
+namespace Gang1057.Nyctophobia.Game
 {
 
     public class LightSourceManager : MonoBehaviour

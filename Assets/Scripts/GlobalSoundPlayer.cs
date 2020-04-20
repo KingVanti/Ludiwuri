@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Gang1057.Ludiwuri
+namespace Gang1057.Nyctophobia
 {
 
     /// <summary>

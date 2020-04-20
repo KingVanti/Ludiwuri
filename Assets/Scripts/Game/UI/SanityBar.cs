@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Gang1057.Ludiwuri.Game.UI
+namespace Gang1057.Nyctophobia.Game.UI
 {
 
     public class SanityBar : MonoBehaviour

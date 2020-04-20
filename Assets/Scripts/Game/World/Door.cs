@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Gang1057.Ludiwuri.Game.World
+namespace Gang1057.Nyctophobia.Game.World
 {
 
     /// <summary>
