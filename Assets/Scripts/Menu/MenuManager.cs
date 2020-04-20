@@ -7,7 +7,7 @@ namespace Gang1057.Ludiwuri.Menu
     /// <summary>
     /// Manages the Menu scene
     /// </summary>
-    public class MenuManager : MonoBehaviour, ISceneManager
+    public class MenuManager : MonoBehaviour, ITransitionAware
     {
 
         #region Fields
@@ -29,12 +29,32 @@ namespace Gang1057.Ludiwuri.Menu
 
         public void PlayGame()
         {
-            SceneManager.LoadScene(1);
+            Transitioner.Instance.TransitionTo(1);
         }
 
         public void Quit()
         {
             Application.Quit();
+        }
+
+        public void OnSceneLoad()
+        {
+
+        }
+
+        public void OnTransitionCompleted()
+        {
+          
+        }
+
+        public void OnTransitionStarted()
+        {
+           
+        }
+
+        public void OnSceneUnload()
+        {
+          
         }
 
         #endregion

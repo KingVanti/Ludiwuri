@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 namespace Gang1057.Ludiwuri.EndScreen
 {
 
-    public class EndScreenManager : MonoBehaviour
+    public class EndScreenManager : MonoBehaviour, ITransitionAware
     {
 
         #region Fields
@@ -22,7 +22,7 @@ namespace Gang1057.Ludiwuri.EndScreen
 
         public void Retry()
         {
-            SceneManager.LoadScene(1);
+            Transitioner.Instance.TransitionTo(1);
         }
 
         public void Quit()
@@ -30,12 +30,11 @@ namespace Gang1057.Ludiwuri.EndScreen
             Application.Quit();
         }
 
-
-        private void Awake()
+        public void OnSceneLoad()
         {
             int gameState = PlayerPrefs.GetInt("GameState");
 
-            if(gameState == 0)
+            if (gameState == 0)
             {
                 gameOverTitle.SetActive(true);
             }
@@ -43,6 +42,21 @@ namespace Gang1057.Ludiwuri.EndScreen
             {
                 winTitle.SetActive(true);
             }
+        }
+
+        public void OnTransitionCompleted()
+        {
+          
+        }
+
+        public void OnTransitionStarted()
+        {
+           
+        }
+
+        public void OnSceneUnload()
+        {
+           
         }
 
         #endregion

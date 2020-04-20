@@ -10,7 +10,7 @@ namespace Gang1057.Ludiwuri.Game
     /// <summary>
     /// Manages the Game scene
     /// </summary>
-    public class GameManager : MonoBehaviour, ISceneManager
+    public class GameManager : MonoBehaviour, ITransitionAware
     {
 
         #region Fields
@@ -45,21 +45,32 @@ namespace Gang1057.Ludiwuri.Game
 
         public float GameProgressionT { get { return SecondsToWin / (float)gameSeconds; } }
 
-        #endregion
-
-        #region Methods
-
-        private void Awake()
+        public void OnSceneLoad()
         {
             roomManager.Initialize();
             lightSourceManager.Initialize();
-
-            SpawnMatchBoxes();
-
             SecondsToWin = gameSeconds;
 
+            SpawnMatchBoxes();
+        }
+
+        public void OnSceneUnload()
+        {
+
+        }
+
+        public void OnTransitionCompleted()
+        {
             StartCoroutine(TickTime());
         }
+
+        public void OnTransitionStarted()
+        {
+        }
+
+        #endregion
+
+        #region Methods
 
         private void SpawnMatchBoxes()
         {
@@ -80,7 +91,7 @@ namespace Gang1057.Ludiwuri.Game
             }
 
             PlayerPrefs.SetInt("GameState", 1);
-            UnityEngine.SceneManagement.SceneManager.LoadScene("EndScreen");
+            Transitioner.Instance.TransitionTo(2);
         }
 
         #endregion

@@ -10,7 +10,7 @@ namespace Gang1057.Ludiwuri.Game.Player
     /// <summary>
     /// Base class for all player controllers
     /// </summary>
-    public class PlayerController : MonoBehaviour
+    public class PlayerController : MonoBehaviour, ITransitionAware
     {
 
         #region Static Properties
@@ -54,6 +54,7 @@ namespace Gang1057.Ludiwuri.Game.Player
         private int _matchCount;
         private bool _inLight = true;
         private bool currentCountDownCondition;
+        private bool active;
         private Coroutine countDownRoutine;
         private IInteractable _currentInteractable;
         private float _sanity;
@@ -113,7 +114,7 @@ namespace Gang1057.Ludiwuri.Game.Player
                 if (_sanity == 0)
                 {
                     PlayerPrefs.SetInt("GameState", 0);
-                    UnityEngine.SceneManagement.SceneManager.LoadScene(2);
+                    Transitioner.Instance.TransitionTo(2);
                 }
             }
         }
@@ -185,8 +186,7 @@ namespace Gang1057.Ludiwuri.Game.Player
                 CurrentLightState = LightState.InShadow;
         }
 
-
-        private void Awake()
+        public void OnSceneLoad()
         {
             Instance = this;
 
@@ -195,42 +195,62 @@ namespace Gang1057.Ludiwuri.Game.Player
             CurrentInteractable = null;
         }
 
+        public void OnTransitionCompleted()
+        {
+            active = true;
+        }
+
+        public void OnTransitionStarted()
+        {
+
+        }
+
+        public void OnSceneUnload()
+        {
+
+        }
+
+
+
         /// <summary>
         /// Called each frame
         /// </summary>
         private void Update()
         {
-            // If the player presses "Interact" and is standing in front of something to interact with that is interactable
-
-            if (Input.GetButtonDown("Interact") && CurrentInteractable != null && CurrentInteractable.Interactable)
-
-                // Interact with it
-
-                CurrentInteractable.Interact();
-
-            // If the player pressed the reload button, his light is not burning and he has matches
-
-            if (Input.GetButtonDown("Reload") && !candle.Lit && MatchCount > 0)
+            if (active)
             {
-                MovementController.Locked = true;
-                minigameManager.StartMinigame();
-            }
+                // If the player presses "Interact" and is standing in front of something to interact with that is interactable
 
-            // Update InLight property
+                if (Input.GetButtonDown("Interact") && CurrentInteractable != null && CurrentInteractable.Interactable)
 
-            InLight = RoomManager.Instance.PlayerInLight(transform.position);
+                    // Interact with it
 
-            switch (CurrentLightState)
-            {
-                case LightState.InLight:
-                    Sanity += sanityHealSpeed * Time.deltaTime;
-                    break;
-                case LightState.InOwnLight:
-                    Sanity -= sanityDamageSpeed / 2 * Time.deltaTime;
-                    break;
-                case LightState.InShadow:
-                    Sanity -= sanityDamageSpeed * Time.deltaTime;
-                    break;
+                    CurrentInteractable.Interact();
+
+                // If the player pressed the reload button, his light is not burning and he has matches
+
+                if (Input.GetButtonDown("Reload") && !candle.Lit && MatchCount > 0)
+                {
+                    MovementController.Locked = true;
+                    minigameManager.StartMinigame();
+                }
+
+                // Update InLight property
+
+                InLight = RoomManager.Instance.PlayerInLight(transform.position);
+
+                switch (CurrentLightState)
+                {
+                    case LightState.InLight:
+                        Sanity += sanityHealSpeed * Time.deltaTime;
+                        break;
+                    case LightState.InOwnLight:
+                        Sanity -= sanityDamageSpeed / 2 * Time.deltaTime;
+                        break;
+                    case LightState.InShadow:
+                        Sanity -= sanityDamageSpeed * Time.deltaTime;
+                        break;
+                }
             }
         }
 
