@@ -34,6 +34,7 @@ namespace Gang1057.Ludiwuri.Game.World.Collectibles
         /// <inheritdoc/>
         protected override void OnCollected()
         {
+            GlobalSoundPlayer.Instance.PlaySound("Matchbox_pickup");
             PlayerController.Instance.MatchCount += matchCount;
             Location.MatchBox = null;
             Location = null;

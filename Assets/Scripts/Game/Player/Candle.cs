@@ -54,6 +54,7 @@ namespace Gang1057.Ludiwuri.Game.Player
         public void Light()
         {
             Lit = true;
+            GlobalSoundPlayer.Instance.PlaySound("Candle_light");
 
             StartCoroutine(FadeOut());
         }

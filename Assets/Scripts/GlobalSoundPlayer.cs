@@ -37,11 +37,16 @@ namespace Gang1057.Ludiwuri
 
         #region Methods
 
+        public void PlaySound(string soundName, float minPitch, float maxPitch)
+        {
+            PlaySound(soundName, Random.Range(minPitch, maxPitch));
+        }
+
         /// <summary>
         /// Plays a sound
         /// </summary>
         /// <param name="soundName">The name of the sound that should be played</param>
-        public void PlaySound(string soundName)
+        public void PlaySound(string soundName, float pitch = 1)
         {
             // Check if a clip with that name exists
 
@@ -60,6 +65,7 @@ namespace Gang1057.Ludiwuri
                     // Get a source
 
                     AudioSource source = idleSources.Dequeue();
+                    source.pitch = pitch;
 
                     // Add source to active sources
 
