@@ -487,10 +487,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16cc8c14332f93e448034577a8a57ca2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startMinWaitTime: 10
-  startMaxWaitTime: 15
-  endMinWaitTime: 2
-  endMaxWaitTime: 5
+  startMinWaitTime: 5
+  startMaxWaitTime: 10
+  endMinWaitTime: 1
+  endMaxWaitTime: 2
   gameManager: {fileID: 598037018}
 --- !u!1 &951814145
 GameObject:
@@ -550,8 +550,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: '[Time until death]'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ee23c543af610354f9fe63d7d3f3e8ad, type: 2}
+  m_sharedMaterial: {fileID: 4734335591408981394, guid: ee23c543af610354f9fe63d7d3f3e8ad,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -777,8 +778,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: '[MatchCount]'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ee23c543af610354f9fe63d7d3f3e8ad, type: 2}
+  m_sharedMaterial: {fileID: 4734335591408981394, guid: ee23c543af610354f9fe63d7d3f3e8ad,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1108,8 +1110,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: '[Time until win]'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ee23c543af610354f9fe63d7d3f3e8ad, type: 2}
+  m_sharedMaterial: {fileID: 4734335591408981394, guid: ee23c543af610354f9fe63d7d3f3e8ad,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1329,8 +1332,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: '[Interaction prompt]'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ee23c543af610354f9fe63d7d3f3e8ad, type: 2}
+  m_sharedMaterial: {fileID: 4734335591408981394, guid: ee23c543af610354f9fe63d7d3f3e8ad,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
