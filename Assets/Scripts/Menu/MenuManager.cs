@@ -25,7 +25,7 @@ namespace Gang1057.Ludiwuri.Menu
 
         public void ShowTutorial()
         {
-
+            tutorialGameObject.SetActive(true);
         }
 
         public void PlayGame()
