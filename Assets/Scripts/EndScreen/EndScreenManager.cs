@@ -1,11 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Gang1057.Ludiwuri.EndScreen
 {
 
-    public class TitleManager : MonoBehaviour
+    public class EndScreenManager : MonoBehaviour
     {
 
         #region Fields
@@ -20,6 +19,17 @@ namespace Gang1057.Ludiwuri.EndScreen
         #endregion
 
         #region Methods
+
+        public void Retry()
+        {
+            SceneManager.LoadScene(1);
+        }
+
+        public void Quit()
+        {
+            Application.Quit();
+        }
+
 
         private void Awake()
         {
