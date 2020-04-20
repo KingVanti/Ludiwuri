@@ -110,8 +110,11 @@ namespace Gang1057.Ludiwuri.Game.Player
 
                 if (_sanity == 0)
                 {
-                    PlayerPrefs.SetInt("GameState", 0);
-                    Transitioner.Instance.TransitionTo(2);
+                    GlobalSoundPlayer.Instance.PlaySound("Scream");
+                    Invoke("GoToEndScreen", 2);
+
+                    enabled = false;
+                    MovementController.enabled = false;
                 }
             }
         }
@@ -201,6 +204,12 @@ namespace Gang1057.Ludiwuri.Game.Player
         }
 
 
+
+        private void GoToEndScreen()
+        {
+            PlayerPrefs.SetInt("GameState", 0);
+            Transitioner.Instance.TransitionTo(2);
+        }
 
         /// <summary>
         /// Called each frame
