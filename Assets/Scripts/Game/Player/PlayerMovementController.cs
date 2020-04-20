@@ -108,7 +108,7 @@ namespace Gang1057.Ludiwuri.Game.Player
             {
                 _faceingDirection = value;
 
-                transform.localScale = new Vector3(value == Directions.Left ? -1 : 1, 1, 1);
+                transform.GetChild(0).localScale = new Vector3(value == Directions.Left ? -1 : 1, 1, 1);
             }
         }
 
