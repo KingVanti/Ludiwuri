@@ -56,7 +56,6 @@ namespace Gang1057.Ludiwuri.Game.Player
         private bool active;
         private IInteractable _currentInteractable;
         private float _sanity;
-        private LightState _currentLightState;
 
         #endregion
 
@@ -135,14 +134,7 @@ namespace Gang1057.Ludiwuri.Game.Player
             }
         }
 
-        public LightState CurrentLightState
-        {
-            get { return _currentLightState; }
-            private set
-            {
-                _currentLightState = value;
-            }
-        }
+        public LightState CurrentLightState { get; private set; }
 
         #endregion
 
