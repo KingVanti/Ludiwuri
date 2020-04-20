@@ -42,10 +42,7 @@ namespace Gang1057.Ludiwuri.Game.Player
         /// Backing field to <see cref="Running"/>
         /// </summary>
         private bool _running = false;
-        /// <summary>
-        /// Backing field to <see cref="Speed"/>
-        /// </summary>
-        private float _speed = 0;
+
         /// <summary>
         /// Backing field to <see cref="FaceingDirection"/>
         /// </summary>
@@ -89,14 +86,7 @@ namespace Gang1057.Ludiwuri.Game.Player
         /// <summary>
         /// The speed with which the player is currently moving
         /// </summary>
-        private float Speed
-        {
-            get { return _speed; }
-            set
-            {
-                _speed = value;
-            }
-        }
+        private float Speed { get; set; } = 0;
 
         /// <summary>
         /// The direction in which the player is currently facing
@@ -166,7 +156,7 @@ namespace Gang1057.Ludiwuri.Game.Player
 
             // Update animator
 
-            if (Input.GetAxis("Horizontal") == 0)
+            if (input == 0)
                 anim.SetInteger("MoveState", 0);
             else if (!Running)
                 anim.SetInteger("MoveState", 1);
